@@ -16,6 +16,8 @@ for line in sys.stdin:
     count.update(words)
 
 # Print the most common words from top 1 to top 3 🌟 这里count.most_common(3) 是新的用法
-for rank, (word, freq) in enumerate(count.most_common(3), start=1): ## copilot 写的，写的真是太好了
+#for rank, (word, freq) in enumerate(count.most_common(3), start=1): ## copilot 写的，写的真是太好了：
+    #这里的start=1为了🌟添加序号（Top 1, Top 2…
     # print(f"Top {rank}: {word} ({freq} occurrences)")
+for word, freq in count.most_common(3):
     print(f"{word}: {freq}")
