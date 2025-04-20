@@ -1,6 +1,14 @@
 import sys,re
 from collections import defaultdict
 '''
+考查到的:
+	•	defaultdict(lambda: {'groups': 0, 'total': 0})
+	•	.lower()，endswith("s") and not endswith("'s")
+	•	" ".join(...)
+	•	sorted(dict.keys())
+	•	int(...), .strip().split()
+
+
 	•	动物名称中，如果是 复数形式结尾的 s（如 Orcas），请去掉末尾的 s
 	•	如果是 以 's 结尾（如 Bryde's whale），保留 's 不做处理
 '''
