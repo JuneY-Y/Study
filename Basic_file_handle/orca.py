@@ -1,3 +1,12 @@
+## 考点： 读取单个或者多个文件，读取多行，对于行的处理，这道题主要是以计数去考查
+
+'''
+	•	sys.argv
+	•	with open(...)
+	•	line.strip().split()
+	•	" ".join(...)
+	•	int(...)
+'''
 import sys, re
 count=0 #count 因为要累加，所以写在全局变量
 for filename in sys.argv[1:]: ##如果不这么写的话，会报错

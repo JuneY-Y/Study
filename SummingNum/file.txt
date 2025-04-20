@@ -1,0 +1,3 @@
+I saw 5 whales and 12 dolphins.
+They counted 43 seals on 02/06/17.
+Some lines may have no numbers.
