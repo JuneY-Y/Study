@@ -5,7 +5,7 @@ from collections import defaultdict
 	•	如果是 以 's 结尾（如 Bryde's whale），保留 's 不做处理
 '''
 # observations=[]
-observations=defaultdict(lambda:{'groups':0, 'total':0}) # 修改为全局变量✅
+observations=defaultdict(lambda:{'groups':0, 'total':0}) # 修改为全局变量✅ 这里直接自动归类判断了
 # pod=0
 for filename in sys.argv[1:]:
     with open(filename, "r") as f:
@@ -22,12 +22,17 @@ for filename in sys.argv[1:]:
             
             raw_name=" ".join(words[2:]) #动物名如何提取加上拼接，✅
             name=raw_name.lower() ## 这里调整了顺序，先拼接然后再一个一个对于有“s”的归一化
-            defaultdict(lambda: {'groups':0, 'total':0})
-            if(words.lower(),endswith("s") and not endswith("'s")): ##这里判断如果是s，那么去掉s
-
-                Modify_w=words.del(1)## 如果是那就删除最后一个s，只删除是复数的
-                observations= " ".join(Modify_w) ## 归一化的词输出为物种名称
+            
+            if name.endswith("s") and not name.endswith("'s"):
+                name=name[:-1] ### 🌟居然用这种方法去掉了s
+            ## 这里直接进行for循环里的累积
+            observations[name]['groups'] += 1
+            observations[name]['total'] += total
                 
-            sorted(dict.keys()) ##这里你提供给我了，但是我不知道怎么用。
-print(f"{observations} observations: {pod} pods, {total} individuals")
+            # sorted(dict.keys()) ##这里你提供给我了，但是我不知道怎么用。 ###真就在最后用到了
+for name in sorted(observations.keys()): ##这里的官方文档需要查一下
+    pod=observations[name]['groups']
+    total=observations[name]['total']
+
+    print(f"{name} observations: {pod} pods, {total} individuals")
 
