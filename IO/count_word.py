@@ -3,7 +3,7 @@
 '''
 标准输入类型的题目
 非常巧妙的用了counter，主要练习了counter
-对于正则 捕捉字母为[a-zA-Z]+ 出现1次或者无数次吗？
+对于正则 捕捉字母为[a-zA-Z]+ 出现1次或者更多次，不会捕获无效的空格
 '''
 
 #用这行命令进行测试 echo "Orca orca Whale ORCA"| python3 count_word.py orca
