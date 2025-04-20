@@ -5,4 +5,9 @@ import sys,re
 '''
 for filename in sys.argv[1:]:
     with open(filename, "r") as f:
-        
+        for line in f:
+            words=line.strip().split()
+            groups=words[2]
+            total=words[1]
+            defaultdict(lambda: {'groups':0, 'total':0})
+            if()
