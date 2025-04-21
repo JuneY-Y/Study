@@ -10,7 +10,8 @@ from collections import Counter
 	•	sum(counter.values()) 计算总词数
 	•	count = counter[target] 获取目标词频
 '''
-count_words=Counter()
+# count_words=Counter() 多个result先不用counter
+results=[] #多个result是复数
 for file in glob.glob("/lyrics *.txt"): ## 需要带“”
     with open(file,"r") as f:
         for word in sys.stdin:
