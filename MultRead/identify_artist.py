@@ -5,5 +5,5 @@ from collections import Counter
 
 count = Counter()
 
-for filepath in sorted("./lyrics/ *.txt")
+for filepath in sorted(glob.glob("./lyrics/ *.txt"))
 # with open ("filename", r) as f:
