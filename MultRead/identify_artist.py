@@ -22,6 +22,19 @@ for filepath in sorted(glob.glob("./lyrics/ *.txt")):
 
 for test_file in sys.argv[1:]: ## 这里直接检索 terminal的输入
     with open(test_file, "r", encoding="utf-8") as f:
+        test_words=re.findall(r"[a-zA-Z]+", f.read().lower())
+
+        best_score=float("-inf")
+        best_artist= None
+        for artist, log_dict in artist_log_probs.items():
+            total_log_prob=sum(log_dict[word] for word in test_words)
+
+            if total_log_prob > best_score:
+                best_score=total_log_prob
+                best_artist=artist
+        print(f"{test_file} most resembles the work of {best_artist} (log-probability={best_score:.1f})")
+    
+
 
 
     
