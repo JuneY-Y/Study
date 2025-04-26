@@ -2,7 +2,11 @@
 
 import collections, glob, math, os, re, sys
 from collections import Counter, defaultdict ##defaultdict
+'''
+构建模型: log_probs[word] = log((count+1)/total)
+unseen word :defaultdict(lambda: log(1/total))  这里指在训练数据中从来没有出现过的单词，但是在测试数据中出现了
 
+'''
 count = Counter()
 
 for filepath in sorted(glob.glob("./lyrics/ *.txt")):
