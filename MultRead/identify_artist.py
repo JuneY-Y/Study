@@ -20,7 +20,9 @@ for filepath in sorted(glob.glob("./lyrics/ *.txt")):
         log_probs[word]=math.log((count+1)/total)
     artist_log_probs[artist]=log_probs
 
-for test_file in sys.argv[1:]:
+for test_file in sys.argv[1:]: ## 这里直接检索 terminal的输入
+    with open(test_file, "r", encoding="utf-8") as f:
+
 
     
 # with open ("filename", r) as f:
