@@ -1,45 +1,68 @@
-#!/bin/bash
+#!/bin/dash
 
-# file="$1"
 regex="$1"
 file="$2"
 
+# 只匹配完整 award 名称
 matching_lines=$(grep -E "^${regex}\|" "$file")
-#matching_lines=$(grep -E "^$regex\|" "$file")
-# echo "$matching_lines"
+
 if [ -z "$matching_lines" ]; then
-        echo "No awards matched"
-        exit 0
-fi 
+    echo "No awards matched"
+    exit 0
+fi
 
-years_given=$(mktemp)   # mktemp 保证每次都是唯一安全的临时文件名
-# grep -E "^$regex\|" "$file" | cut -d '|' -f2 | sort -n | uniq > "$years_given" 我会写的内容
-printf '%s\n' "$matching_lines" | cut -d '|' -f2 | sort -n | uniq > "$years_given"
+# 提取年份并排序去重
+given_years=$(printf '%s\n' "$matching_lines" | cut -d '|' -f2 | sort -n | uniq)
 
-n=$(head -n1 "$years_given")
-m=$(tail -n1 "$years_given")
+# 获取首尾年份
+n=$(printf '%s\n' "$given_years" | head -n1)
+m=$(printf '%s\n' "$given_years" | tail -n1)
 
-echo "First year: $n"
-echo "Last year:  $m"
+# 输出缺失年份（使用 comm 和 process substitution）
+seq "$n" "$m" | comm -23 - "$(printf '%s\n' "$given_years")"
 
-expected=$(mktemp)
+# #!/bin/bash
 
-# n=$(grep "Nobel Prize for physics" awards.psv | sort -t'|' -k2,2n | awk -F'|' '!seen[$2]++' |head -n 1 | cut -d '|' -f2,2)
+# # file="$1"
+# regex="$1"
+# file="$2"
 
-# m=$(grep "Nobel Prize for physics" awards.psv | sort -t'|' -k2,2n | awk -F'|' '!seen[$2]++' |tail -n 1 | cut -d '|' -f2,2)
+# matching_lines=$(grep -E "^${regex}\|" "$file")
+# #matching_lines=$(grep -E "^$regex\|" "$file")
+# # echo "$matching_lines"
+# if [ -z "$matching_lines" ]; then
+#         echo "No awards matched"
+#         exit 0
+# fi 
 
-# grep "Nobel Prize for physics" awards.psv | sort -t'|' -k2,2n | awk -F'|' '!seen[$2]++' |cut -d '|' -f2,2 >  "$award"
+# years_given=$(mktemp)   # mktemp 保证每次都是唯一安全的临时文件名
+# # grep -E "^$regex\|" "$file" | cut -d '|' -f2 | sort -n | uniq > "$years_given" 我会写的内容
+# printf '%s\n' "$matching_lines" | cut -d '|' -f2 | sort -n | uniq > "$years_given"
 
-# 先生成 expected 内容
-seq "$n" "$m" > "$expected"
+# n=$(head -n1 "$years_given")
+# m=$(tail -n1 "$years_given")
 
-echo "🔹 Given Years (from file: $years_given):"
-cat "$years_given"
-echo "🔹 Expected Years (from file: $expected):"
-cat "$expected"
-echo "🔹 Missing Years:"
+# # echo "First year: $n"
+# # echo "Last year:  $m"
 
-# diff "$expected" "$years_given" | grep '^>' |cut -d " " -f2 #不变
-diff "$expected" "$years_given" | grep '^>' | sed 's/^> *//'
+# expected=$(mktemp)
 
-#rm -f "$expected" "$years_given" # 不变
+# # n=$(grep "Nobel Prize for physics" awards.psv | sort -t'|' -k2,2n | awk -F'|' '!seen[$2]++' |head -n 1 | cut -d '|' -f2,2)
+
+# # m=$(grep "Nobel Prize for physics" awards.psv | sort -t'|' -k2,2n | awk -F'|' '!seen[$2]++' |tail -n 1 | cut -d '|' -f2,2)
+
+# # grep "Nobel Prize for physics" awards.psv | sort -t'|' -k2,2n | awk -F'|' '!seen[$2]++' |cut -d '|' -f2,2 >  "$award"
+
+# # 先生成 expected 内容
+# seq "$n" "$m" > "$expected"
+
+# echo "🔹 Given Years (from file: $years_given):"
+# cat "$years_given"
+# echo "🔹 Expected Years (from file: $expected):"
+# cat "$expected"
+# echo "🔹 Missing Years:"
+
+# # diff "$expected" "$years_given" | grep '^>' |cut -d " " -f2 #不变
+# diff "$expected" "$years_given" | grep '^>' | sed 's/^> *//'
+
+# rm -f "$expected" "$years_given" # 不变
