@@ -1,3 +1,3 @@
 #!/bin/dash
 
-sort -n | head -n1
+sort -n | head -n1 |
