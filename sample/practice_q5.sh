@@ -3,23 +3,30 @@
 regex="$1"
 file="$2"
 
-# 只匹配完整 award 名称
 matching_lines=$(grep -E "^${regex}\|" "$file")
-
 if [ -z "$matching_lines" ]; then
     echo "No awards matched"
     exit 0
 fi
 
-# 提取年份并排序去重
-given_years=$(printf '%s\n' "$matching_lines" | cut -d '|' -f2 | sort -n | uniq)
+years_given=$(mktemp)
+expected_years=$(mktemp)
 
-# 获取首尾年份
-n=$(printf '%s\n' "$given_years" | head -n1)
-m=$(printf '%s\n' "$given_years" | tail -n1)
+# 提取已颁奖年份，排序去重写入临时文件
+printf '%s\n' "$matching_lines" | cut -d '|' -f2 | sort -n | uniq > "$years_given"
 
-# 输出缺失年份（使用 comm 和 process substitution）
-seq "$n" "$m" | comm -23 - "$(printf '%s\n' "$given_years")"
+# 获取最早和最晚年份
+n=$(head -n1 "$years_given")
+m=$(tail -n1 "$years_given")
+
+# 生成完整年份区间
+seq "$n" "$m" > "$expected_years"
+
+# 输出缺失年份
+comm -23 "$expected_years" "$years_given"
+
+# 清理临时文件
+rm -f "$years_given" "$expected_years"
 
 # #!/bin/bash
 
