@@ -1,2 +1,2 @@
 #!/bin/dash
-cut -d '|' -f3,3 | sort|uniq| cut -d ' ' -f1
+grep -iE '\|M$'| cut -d '|' -f3,3 | cut -d ',' -f1| sort | uniq
