@@ -12,4 +12,4 @@ seq "$n" "$m" > "$expected"
 
 diff "$expected" "$award" | grep '^>' |cut -d " " -f2 
 
--rm -f "$expected" "$award" 
+rm -f "$expected" "$award" 
