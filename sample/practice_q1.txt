@@ -20,12 +20,12 @@ That is the comment must immediately follow the answer and start with a '#' char
 ------------------------------------------------------------------------------------------------------------------------
 
 1) Australian winners
-Q1 answer: grep -E Australia
+Q1 answer: grep -E Austria awards.psv
 
 ------------------------------------------------------------------------------------------------------------------------
 
 2) Female, ACM Turing Award, winners
-Q2 answer:
+Q2 answer: grep -E Female awards.psv | grep -e 'ACM'
 
 ------------------------------------------------------------------------------------------------------------------------
 
