@@ -4,8 +4,9 @@
 regex="$1"
 file="$2"
 
-matching_lines=$(grep -E "^$regex\|" "$file")
-
+matching_lines=$(grep -E "^${regex}\|" "$file")
+#matching_lines=$(grep -E "^$regex\|" "$file")
+echo "$matching_lines"
 if [ -z "$matching_lines" ]; then
         echo "No awards matched"
         exit 0
