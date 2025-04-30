@@ -18,10 +18,10 @@ if len(lines1) != len(lines2):
     print(f"Not mirrored: different number of lines: {len(lines1)} versus {len(lines2)}")
     sys.exit(0)
 
-reversed_lines1=list(reversed(lines1))
+#reversed_lines1=list(reversed(lines1))
 
-for i in range(len(lines2)):
-    if reversed_lines1[i] != lines2[i]:
+for i in range(len(lines1)):
+    if lines1[i] != lines2[-(i+1)] : # file2逆序比较的方法
         print(f"Not mirrored: line {i+1} different")
         sys.exit(0)
 
