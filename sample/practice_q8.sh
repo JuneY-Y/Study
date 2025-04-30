@@ -2,41 +2,30 @@
 
 found=0
 prev_list=$(mktemp)
-matched_list=$(mktemp)
 
 for file in "$@"
 do
-    # 如果当前文件已经是一个匹配结果（被替换过），就跳过
-    if grep -Fx "$file" "$matched_list" >/dev/null; then
-        continue
-    fi
-
-    matched=0
-
     while read prev
     do
-        # 如果prev是一个已被替换过的目标文件，也跳过
-        if grep -Fx "$prev" "$matched_list" >/dev/null; then
-            continue
-        fi
+        # 避免 file 和自己比（或比过了）
+        [ "$file" = "$prev" ] && continue
 
-        if cmp -s "$file" "$prev"; then
+        if cmp -s "$file" "$prev"
+        then
             echo "ln -s $prev $file"
-            echo "$file" >> "$matched_list"  # 标记为被替换过
             found=1
-            matched=1
             break
         fi
     done < "$prev_list"
 
-    if [ "$matched" -eq 0 ]; then
-        echo "$file" >> "$prev_list"
-    fi
+    # 不论是否找到匹配，都要加入 prev_list
+    echo "$file" >> "$prev_list"
 done
 
-rm -f "$prev_list" "$matched_list"
+rm -f "$prev_list"
 
-if [ "$found" -eq 0 ]; then
+if [ "$found" -eq 0 ]
+then
     echo "No files can be replaced by symbolic links"
 fi
 # #!/bin/dash
