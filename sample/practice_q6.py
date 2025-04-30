@@ -13,3 +13,6 @@ with open (filename, 'r') as f1:
 
 with open (filename, 'r') as f2:
     line2 = [line.rstrip('\n') for line in f2]
+
+if len(lines1) != len(lines2):
+    print(f"Not mirrored: different number of lines: {len(lines1)} versus {len(lines2)}")
