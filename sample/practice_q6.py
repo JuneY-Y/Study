@@ -1,4 +1,4 @@
-#!/bin/env/python3
+#!/usr/bin/env python3
 
 import sys
 
@@ -8,11 +8,21 @@ file2 = sys.argv[2]
 
 
 #打开文件
-with open (filename, 'r') as f1:
-    line1 = [line.rstrip('\n') for line in f1]
+with open (file1, 'r') as f1:
+    lines1 = [line.rstrip('\n') for line in f1]
 
-with open (filename, 'r') as f2:
-    line2 = [line.rstrip('\n') for line in f2]
+with open (file2, 'r') as f2:
+    lines2 = [line.rstrip('\n') for line in f2]
 
 if len(lines1) != len(lines2):
     print(f"Not mirrored: different number of lines: {len(lines1)} versus {len(lines2)}")
+    sys.exit(0)
+
+reversed_lines1=list(reversed(lines1))
+
+for i in range(len(lines2)):
+    if reversed_lines1[i] != lines2[i]:
+        print(f"Not mirrored: line {i+1} different")
+        sys.exit(0)
+
+print("Mirrored")
