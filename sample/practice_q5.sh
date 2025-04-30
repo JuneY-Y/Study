@@ -12,14 +12,21 @@ if [ -z "$matching_lines" ]; then
 fi 
 
 years_given=$(mktemp)
-n=$(grep "Nobel Prize for physics" awards.psv | sort -t'|' -k2,2n | awk -F'|' '!seen[$2]++' |head -n 1 | cut -d '|' -f2,2)
+echo "$matching_lines" | cut -d '|' -f2 | sort -n | uniq > "$years_given"
 
-m=$(grep "Nobel Prize for physics" awards.psv | sort -t'|' -k2,2n | awk -F'|' '!seen[$2]++' |tail -n 1 | cut -d '|' -f2,2)
+n=$(head -n1 "$years_given")
+m=$(tail -n1 "$years_given")
 
-grep "Nobel Prize for physics" awards.psv | sort -t'|' -k2,2n | awk -F'|' '!seen[$2]++' |cut -d '|' -f2,2 >  "$award"
+expected=$(mktemp)
 
-seq "$n" "$m" > "$expected"
+# n=$(grep "Nobel Prize for physics" awards.psv | sort -t'|' -k2,2n | awk -F'|' '!seen[$2]++' |head -n 1 | cut -d '|' -f2,2)
 
-diff "$expected" "$award" | grep '^>' |cut -d " " -f2 
+# m=$(grep "Nobel Prize for physics" awards.psv | sort -t'|' -k2,2n | awk -F'|' '!seen[$2]++' |tail -n 1 | cut -d '|' -f2,2)
 
-rm -f "$expected" "$award" 
+# grep "Nobel Prize for physics" awards.psv | sort -t'|' -k2,2n | awk -F'|' '!seen[$2]++' |cut -d '|' -f2,2 >  "$award"
+
+seq "$n" "$m" > "$expected" #不变
+
+diff "$expected" "$years_given" | grep '^>' |cut -d " " -f2 #不变
+
+rm -f "$expected" "$years_given" # 不变
