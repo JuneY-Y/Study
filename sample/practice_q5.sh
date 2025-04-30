@@ -23,7 +23,11 @@ m=$(tail -n1 "$years_given")
 seq "$n" "$m" > "$expected_years"
 
 # 输出缺失年份
-comm -23 "$expected_years" "$years_given"
+
+# 1.	两个文件都必须已经排好序（用 sort -n）
+# 2.	comm 会一列一列输出，所以用 -23 是为了“去掉第2列（只在file2中）和第3列（公共行）”
+
+comm -23 "$expected_years" "$years_given" #只输出 第一个文件中有，但第二个文件中没有 的行。
 
 # 清理临时文件
 rm -f "$years_given" "$expected_years"
