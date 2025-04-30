@@ -11,7 +11,7 @@ if [ -z "$matching_lines" ]; then
         exit 0
 fi 
 
-years_given=$(mktemp)
+years_given=$(mktemp)   # mktemp 保证每次都是唯一安全的临时文件名
 echo "$matching_lines" | cut -d '|' -f2 | sort -n | uniq > "$years_given"
 
 n=$(head -n1 "$years_given")
