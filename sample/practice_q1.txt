@@ -20,7 +20,7 @@ That is the comment must immediately follow the answer and start with a '#' char
 ------------------------------------------------------------------------------------------------------------------------
 
 1) Australian winners
-Q1 answer: grep -E Austria awards.psv
+Q1 answer: grep -E Australia awards.psv
 
 ------------------------------------------------------------------------------------------------------------------------
 
@@ -35,4 +35,4 @@ Q3 answer: grep -iE "Nobel Prize for .*" awards.psv | awk -F '|' '$6 ~ /^199[0-9
 ------------------------------------------------------------------------------------------------------------------------
 
 4) winners with first name, last name, and middle initial starting with the same letter
-Q4 answer:
+Q4 answer: grep -E '\|([A])[a-z]+ A\. A[a-z]+' awards.psv
