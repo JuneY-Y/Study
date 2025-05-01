@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 
+## 考察了Counter内容，以及if+for用法(这个我还是非常熟练的)
+#counter需要继续复习，这个我认为难易程度：简单
+#这个是没有想到的: set(...)：如果所有字符出现次数一样，那 set 只有 1 个元素
 import sys
 from collections import Counter
 
