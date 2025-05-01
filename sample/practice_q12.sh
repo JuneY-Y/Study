@@ -9,9 +9,11 @@ letter_to_num() {
     ord=$(printf "%d" "'$ch")   # e.g. 'a' → 97
     echo $((ord - 96))          # 97 - 96 = 1 → 列号
 }
+
 # 数字到棋盘列的映射（1=a, ..., 8=h）
 num_to_letter() {
-    printf "\\$(printf '%03o' "$((96 + $1))")"
+    n="$1"
+    printf "\\$(printf '%03o' "$((96 + n))")"
 }
 
 # 判断是否合法格子
