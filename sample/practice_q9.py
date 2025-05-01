@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
-
+'''
+字符数就是一行中所有字符的总数量，
+包括字母、空格、标点符号等，但不包括行末的换行符 \n
+'''
 import sys
+
 
 n=int(sys.argv[1])
 filename=sys.argv[2]
