@@ -1,11 +1,30 @@
 #!/bin/dash
+# ==============================================================================
+# name: compare_dirs.sh
+# aim: Compare files in two directories by name and content (ignoring case/space)
+#
+# Usage: ./compare_dirs.sh dir1 dir2
+# ==============================================================================
 
-for file in "$dir1"/* #这会遍历 $dir1 目录下的所有文件（包含完整路径），更可靠，支持文件名带空格
+dir1="$1"
+dir2="$2"
+
+# Check if both arguments are valid directories
+if [ ! -d "$dir1" ] || [ ! -d "$dir2" ]; then
+    echo "Usage: $0 <dir1> <dir2>"
+    echo "Both arguments must be valid directories."
+    exit 1
+fi
+
+# Loop through all files in dir1
+for file1 in "$dir1"/*
 do
-    echo "$file"
-done
+    file_name=$(basename "$file1")  # Extract file name
+    file2="$dir2/$file_name"        # Corresponding file in dir2
 
-file_name='basename "$ls_file1"'
-if test -e "$dir2/$file_name"
-if diff -i -w "$dir1/$file_name" "$dir2/$file_name" >/dev/null
-echo "$file_name" 
+    if [ -e "$file2" ]; then
+        if diff -i -w "$file1" "$file2" >/dev/null; then
+            echo "$file_name"  # Output matching files
+        fi
+    fi
+done
