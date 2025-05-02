@@ -10,7 +10,7 @@ dir1="$1"
 dir2="$2"
 
 # Check if both arguments are valid directories
-if [ ! -d "$dir1" ] || [ ! -d "$dir2" ]; then
+if [ ! -d "$dir1" ] || [ ! -d "$dir2" ]; then   ## dir1不是有效目录 或者 dir2不是有效目录
     echo "Usage: $0 <dir1> <dir2>"
     echo "Both arguments must be valid directories."
     exit 1
