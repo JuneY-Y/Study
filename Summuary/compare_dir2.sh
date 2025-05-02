@@ -39,12 +39,13 @@ if [ ! -d "$dir2" ]; then
 fi
 
 # check all and test 
+
 for file1 in "$dir1"/*  ##整个directory下的所有文件 "$dir1"/*
 do
     file_name=$(basename "$file1")
-    echo "$file_name"
+    # echo "$file_name"
     file2="$dir2/$file_name"
-    echo "$file2"
+    #echo "$file2"
 
     if [ -e "$file2" ]; then ## 判断$dir2 是否在同一个目录里
     # '''
