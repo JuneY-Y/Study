@@ -2,6 +2,7 @@
 
 dir1="$1"
 dir2="$2"
+empty_flag=0
 
 if [ $# -lt 2 ]; then
     echo "Usage: $0 <dir1> <dir2>"
