@@ -1,5 +1,20 @@
 #!/bin/dash
-
+# ==============================================================================
+# name: practice_q8.sh
+# aim: Find all pairs of identical files and suggest symbolic links
+#
+# This script compares the contents of all input files.
+# For each pair of files with identical content, it prints:
+#   ln -s source target
+# Ensures:
+#   - Each file is only used once as target
+#   - Output follows input order
+#   - No duplicate or reversed links are printed
+# If no matches found, prints:
+#   No files can be replaced by symbolic links
+#
+# Written in POSIX-compliant shell for COMP2041/9044
+# ==============================================================================
 printed=0
 processed=""
 
