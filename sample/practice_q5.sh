@@ -1,79 +1,38 @@
-#!/bin/dash
+#!/usr/bin/env dash
+	# 功能：找出某个奖项从第一次颁发到最后一次之间，未曾颁发的年份。
+	# •	输入：
+	# •	$1：奖项名称
+	# •	$2：数据文件（pipe-separated）
+	# •	核心逻辑：
+	# •	提取该奖项出现的所有年份 → years
+	# •	用 seq 生成完整年份序列
+	# •	每年检查是否在 years 中 → 不在即为缺失年份
+    
+# Given
+# 1) a 'pipe separated values' file with award winners
+# in the format:
+#   award name
+#   award year
+#   winner name
+#   winner gender
+#   winner country
+#   winner birth year
+# 2) The name of an award
+#
+# find all years in which the award was *not* given
 
-regex="$1"
-file="$2"
+years=$(grep -E "^$1\|" "$2" | sort -t'|' -k2 | cut -d'|' -f2)
 
-matching_lines=$(grep -E "^${regex}\|" "$file")
-if [ -z "$matching_lines" ]; then
-    echo "No awards matched"
-    exit 0
+if [ -z "$years" ]; then
+    echo "No award matching '$1'" >&2
+    exit 1
 fi
 
-years_given=$(mktemp)
-expected_years=$(mktemp)
+start=$(echo "$years" | head -n1)
+end=$(echo "$years" | tail -n1)
 
-# 提取已颁奖年份，排序去重写入临时文件
-printf '%s\n' "$matching_lines" | cut -d '|' -f2 | sort -n | uniq > "$years_given"
-
-# 获取最早和最晚年份
-n=$(head -n1 "$years_given")
-m=$(tail -n1 "$years_given")
-
-# 生成完整年份区间
-seq "$n" "$m" > "$expected_years"
-
-# 输出缺失年份
-
-# 1.	两个文件都必须已经排好序（用 sort -n）
-# 2.	comm 会一列一列输出，所以用 -23 是为了“去掉第2列（只在file2中）和第3列（公共行）”
-
-comm -23 "$expected_years" "$years_given" #只输出 第一个文件中有，但第二个文件中没有 的行。
-
-# 清理临时文件
-rm -f "$years_given" "$expected_years"
-
-# #!/bin/bash
-
-# # file="$1"
-# regex="$1"
-# file="$2"
-
-# matching_lines=$(grep -E "^${regex}\|" "$file")
-# #matching_lines=$(grep -E "^$regex\|" "$file")
-# # echo "$matching_lines"
-# if [ -z "$matching_lines" ]; then
-#         echo "No awards matched"
-#         exit 0
-# fi 
-
-# years_given=$(mktemp)   # mktemp 保证每次都是唯一安全的临时文件名
-# # grep -E "^$regex\|" "$file" | cut -d '|' -f2 | sort -n | uniq > "$years_given" 我会写的内容
-# printf '%s\n' "$matching_lines" | cut -d '|' -f2 | sort -n | uniq > "$years_given"
-
-# n=$(head -n1 "$years_given")
-# m=$(tail -n1 "$years_given")
-
-# # echo "First year: $n"
-# # echo "Last year:  $m"
-
-# expected=$(mktemp)
-
-# # n=$(grep "Nobel Prize for physics" awards.psv | sort -t'|' -k2,2n | awk -F'|' '!seen[$2]++' |head -n 1 | cut -d '|' -f2,2)
-
-# # m=$(grep "Nobel Prize for physics" awards.psv | sort -t'|' -k2,2n | awk -F'|' '!seen[$2]++' |tail -n 1 | cut -d '|' -f2,2)
-
-# # grep "Nobel Prize for physics" awards.psv | sort -t'|' -k2,2n | awk -F'|' '!seen[$2]++' |cut -d '|' -f2,2 >  "$award"
-
-# # 先生成 expected 内容
-# seq "$n" "$m" > "$expected"
-
-# echo "🔹 Given Years (from file: $years_given):"
-# cat "$years_given"
-# echo "🔹 Expected Years (from file: $expected):"
-# cat "$expected"
-# echo "🔹 Missing Years:"
-
-# # diff "$expected" "$years_given" | grep '^>' |cut -d " " -f2 #不变
-# diff "$expected" "$years_given" | grep '^>' | sed 's/^> *//'
-
-# rm -f "$expected" "$years_given" # 不变
+for year in $(seq "$start" "$end"); do
+    if ! echo "$years" | grep -q "$year"; then
+        echo "$year"
+    fi
+done
