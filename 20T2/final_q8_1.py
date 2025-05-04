@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+# 记录下 第八题还是有错误。会重新练习
 import sys
 from collections import Counter
 
