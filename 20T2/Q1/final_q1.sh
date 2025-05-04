@@ -1,1 +1,1 @@
-cut -d '|' -f3 enrollment.txt
+cut -d '|' -f2,3 enrollments.txt |sort |uniq | cut -d ' ' -f2| sort
