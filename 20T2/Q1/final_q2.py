@@ -9,6 +9,6 @@ for line in sys.stdin:
     first_name=names[1].split()[0] ## ['Kevin', 'Augustus']
     result.add((zid, first_name)) ## 添加元组映射
 
-result=[name for zid, name in result]
+onlyname=[name for zid, name in result]
 for name in sorted(result):
-    print(name)
+    print(onlyname)
