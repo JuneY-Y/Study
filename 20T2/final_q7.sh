@@ -1,6 +1,6 @@
 #!/bin/dash
 
-Problem Description (Q7)
+Problem Description (Q7) 找m和nset之间的missing数字
 
 Write a POSIX-compatible shell script that takes, as command-line arguments, an unordered list of positive integers ranging from n to m, with possibly one missing integer.
 
