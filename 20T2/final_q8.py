@@ -1,4 +1,4 @@
-#!/bin/dash
+#!/usr/bin/env python3
 
 '''
 关键词： equi-lettered
@@ -14,4 +14,11 @@ for line in sys.stdin:
     result=[]
     for word in words:
         lower_word=word.lower()
-        counts=
+        counts=Counter(lower_word)
+        freq=set(counts.values())
+        #print(freq)
+        #将每一行中属于 equi-lettered 的单词保留下来，并用空格连接输出
+        if len(freq)==1: #出现次数一致，set=1
+            result.append(word)
+    #把当前行中符合条件的单词，用空格 ' ' 拼接起来，打印成一整行输出。
+    print(" ".join(result))
