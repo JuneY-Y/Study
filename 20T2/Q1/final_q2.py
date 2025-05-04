@@ -10,5 +10,5 @@ for line in sys.stdin:
     result.add((zid, first_name)) ## 添加元组映射
 
 onlyname=[name for zid, name in result]
-for name in sorted(result):
-    print(onlyname)
+for name in sorted(onlyname):
+    print(name)
