@@ -2,7 +2,14 @@
 # ==============================================================================
 # name: practice_q8.sh
 # aim: Find all pairs of identical files and suggest symbolic links
-#
+# #题目目的：
+# - 找出所有内容完全相同的文件对，并推荐用 ln -s 建立符号链接
+
+# 关键技术：
+# - cmp 比较文件内容
+# - case 语句判断文件是否已处理
+# - 参数顺序控制输出顺序
+# - 防止重复、反向或自我链接
 # This script compares the contents of all input files.
 # For each pair of files with identical content, it prints:
 #   ln -s source target
