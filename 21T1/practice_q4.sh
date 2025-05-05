@@ -15,6 +15,6 @@ suffix=$(echo "$s1" | sed "s/.*[0-9]//")
 current=$num1
 
 while [ "$current" -le "$num2" ]; do
-    echo "${prefix}${current}${suffix}"
+    echo "${prefix}${current}${suffix}"  ## 在字符串中间插入变量的时候超级需要
     current=$((current + 1))
 done
