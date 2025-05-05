@@ -1,14 +1,20 @@
 #!/bin/dash
 
-n=$(echo $1 | grep -Eo '[0-9]+')
-m=$(echo $2 | grep -Eo '[0-9]+')
+s1=$1
+s2=$2
 
-# echo $n
-# echo $m 
-current_num=$n  ##初始化
+# 提取数字部分
+num1=$(echo "$s1" | grep -Eo '[0-9]+')
+num2=$(echo "$s2" | grep -Eo '[0-9]+')
 
-while [ "$current_num" -le "$m" ]; do
-        result=$(echo $n | sed "s/$n/$current_num/")
-        echo $result
-        current_num=$((current_num+1))
+# 提取前缀（非数字部分）
+prefix=$(echo "$s1" | sed "s/[0-9].*//")
+# 提取后缀（从数字结尾到结尾的部分）
+suffix=$(echo "$s1" | sed "s/.*[0-9]//")
+
+current=$num1
+
+while [ "$current" -le "$num2" ]; do
+    echo "${prefix}${current}${suffix}"
+    current=$((current + 1))
 done
