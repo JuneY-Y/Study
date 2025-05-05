@@ -7,7 +7,6 @@ for file in "$@" ; do
 
         if [ ! -f "$head_file" ]; then
         # if [ ! -f "$head_file" ]; then
-
             echo "$head_file included into $file does not exist"
         fi
     done
