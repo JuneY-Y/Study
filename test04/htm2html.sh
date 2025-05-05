@@ -1,4 +1,6 @@
 #!/bin/dash
+
+## 修改htm为html
 for htm_file in *.htm;do
     if [ "$htm_file" = "*.htm" ]; then
         exit 0
