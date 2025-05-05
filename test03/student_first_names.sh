@@ -5,7 +5,7 @@ sort -t"|" -k2,2 -u \
 | cut -d"|" -f3 \
 | cut -d"," -f2 \
 | cut -d" " -f1,2 \
-| sed 's/,[[:space:]]*//' \
+| sed 's/, *//' \
 | cut -d" " -f2 \
 | sort
 
