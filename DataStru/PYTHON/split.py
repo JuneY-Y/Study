@@ -1,6 +1,17 @@
 #!/usr/bin/env python3
 import re
 
+'''
+\d  匹配：任何数字字符
+\D  匹配：任何非数字字符
+
+\w 匹配： 任何单词字符
+\W 匹配： 任何非单词字符
+
+\s 匹配：任何空白字符
+\S：匹配： 任何非空白字符
+'''
+
 text= "COMP9044"
 words= re.split(r"comp+", text)
 print(words)
