@@ -1,6 +1,6 @@
 import os
 import sys
-import filecmp
+# import filecmp
 '''
 调用了.exists库进行查看
 用line进行查看是否相同
@@ -12,9 +12,19 @@ if not (os.path.exists(file1) and os.path.exists(file2)):
     print("no file exit")
     sys.exit(1)
 
-with open(file1, 'r') as f1, open(file2, 'r') as f2:
-    lines1=f1.readlines()
-    lines2=f2.readlines()
+#method1 : readlines()函数进行比较
+# with open(file1, 'r') as f1, open(file2, 'r') as f2:
+#     lines1=f1.readlines()
+#     lines2=f2.readlines()
+
+##method 2: 逐行比较
+def compare():
+    with open(file1, 'r') as f1, open(file2, 'r') as f2:
+        for line1, line2 in zip(f1, f2):
+            if line1 != line2:
+                print("the same files")
+                sys.exit(0)
+
 
 if lines1==lines2:
     print("same file")
