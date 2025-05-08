@@ -25,10 +25,13 @@ def compare():
                 print(f"Files differ at line {line_num}")
                 sys.exit(0)
 
-    with open(file1, 'r')
+    with open(file1, 'r') as f1, open(file2, 'r') as f2:
+        if sum(1 for _ in f1) != sum(1 for _ in f2):
+            print("Files differ in Length")
+            sys.exit(0)
 
-
-if lines1==lines2:
     print("same file")
-else:
-    print("different file")
+
+compare()
+
+
