@@ -12,3 +12,4 @@ foo
 bar
 foobar
 hello world
+pattern
