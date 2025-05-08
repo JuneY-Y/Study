@@ -5,3 +5,10 @@ Another line without 42
 42
 42 is the answer
 Hello World
+
+apple
+banana
+foo
+bar
+foobar
+hello world
