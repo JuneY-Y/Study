@@ -27,6 +27,8 @@ def compare():
 
     with open(file1, 'r') as f1, open(file2, 'r') as f2:
         if sum(1 for _ in f1) != sum(1 for _ in f2):
+        ##	•	习惯用法：_ 是 Python 社区中通用的“忽略变量”的表示方法。
+	    ##  •	表示我们不关心这个值：它表明即使我们遍历了它，我们也不需要它。
             print("Files differ in Length")
             sys.exit(0)
 
