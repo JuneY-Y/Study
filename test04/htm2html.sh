@@ -13,6 +13,16 @@ for htm_file in *.htm;do
     mv "$htm_file" "$html_filename"
 done
 
+#!/bin/dash
+
+for htm_file in *.htm; do
+    if [ "$htm_file" = "*.htm" ]; then
+        exit 0
+    fi
+    html_filename="${htm_file%.*}.html"
+    if [ -f "$html_filename" ]; then
+    
+
 # for htm_file in *.htm;do
 
 #     if [ "$htm_file" = "*.htm" ]; then
