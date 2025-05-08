@@ -20,10 +20,12 @@ if not (os.path.exists(file1) and os.path.exists(file2)):
 ##method 2: 逐行比较
 def compare():
     with open(file1, 'r') as f1, open(file2, 'r') as f2:
-        for line1, line2 in zip(f1, f2):
+        for line_num, (line1, line2) in enumerate(zip(f1, f2), 1):
             if line1 != line2:
-                print("the same files")
+                print(f"Files differ at line {line_num}")
                 sys.exit(0)
+
+    with open(file1, 'r')
 
 
 if lines1==lines2:
