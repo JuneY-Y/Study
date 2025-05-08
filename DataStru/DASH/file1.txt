@@ -13,3 +13,4 @@ bar
 foobar
 hello world
 pattern
+pattern+++++
