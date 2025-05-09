@@ -12,5 +12,5 @@ import sys
 import re
 
 course_prefix= sys.argv[1]
-assert len(sys.argv)==1, f"Usage: {sys.argv[0]} <course prefix>"
-assert re.fullmatch(r"[A-Z]{4}", course_prefix), f"Invalid course code: {}"
+assert len(sys.argv[1]) == 2, f"Usage: {sys.argv[0]} <course prefix>"
+assert re.fullmatch(r"[A-Z]{4}", course_prefix), f"Invalid course code: {course_prefix}"
