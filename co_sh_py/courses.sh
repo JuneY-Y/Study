@@ -14,16 +14,28 @@ fi
 ## 这里获取前缀 命名为prefix
 prefix="$1"
 
+
 if echo "$prefix" | grep -E "[A-Z]{4}" > /dev/null; then : #to send any unwanted output from program/command
 else
         echo "Invalid course prefix: ${prefix}"
         exit 1
 fi
 
+#-----
+# if #condition; then :
+# fi
+
+# #或者是
+# if #condition; then :
+# else
+# fi
+#-----
 prefix="$1"
 if echo "$prefix"|grep -E "[A-Z]{4}" >/dev/null; then :
-
-
+else 
+        echo "Invalid course prefix: ${prefix}"
+        exit 1
+fi
 
 # grep -o 只是输出了匹配部分
 curl --location --silent "http://www.timetable.unsw.edu.au/2024/${prefix}KENS.html" |
