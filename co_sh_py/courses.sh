@@ -6,6 +6,11 @@ if test "$#" -ne "1"; then ## -ne "1" 参数是否为1
         exit 1
 fi
 
+if test "$#" -ne "1"; then
+        echo "Usage: $0 <course prefix>"
+        exit 1
+fi
+
 ## 这里获取前缀 命名为prefix
 prefix="$1"
 
