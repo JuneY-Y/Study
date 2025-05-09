@@ -6,10 +6,10 @@ if test "$#" -ne "1"; then ## -ne "1" 参数是否为1
         exit 1
 fi
 
-if test "$#" -ne "1"; then
-        echo "Usage: $0 <course prefix>"
-        exit 1
-fi
+# if test "$#" -ne "1"; then
+#         echo "Usage: $0 <course prefix>"
+#         exit 1
+# fi
 
 ## 这里获取前缀 命名为prefix
 prefix="$1"
@@ -19,6 +19,11 @@ else
         echo "Invalid course prefix: ${prefix}"
         exit 1
 fi
+
+prefix="$1"
+if echo "$prefix"|grep -E "[A-Z]{4}" >/dev/null; then :
+
+
 
 # grep -o 只是输出了匹配部分
 curl --location --silent "http://www.timetable.unsw.edu.au/2024/${prefix}KENS.html" |
