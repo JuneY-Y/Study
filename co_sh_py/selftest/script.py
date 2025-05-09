@@ -11,6 +11,16 @@ exam point
 import sys
 import re
 
-course_prefix= sys.argv[1]
-assert len(sys.argv[1]) == 2, f"Usage: {sys.argv[0]} <course prefix>"
-assert re.fullmatch(r"[A-Z]{4}", course_prefix), f"Invalid course code: {course_prefix}"
+if len(sys.argv) != 2:
+    print(f"Usage: {sys.argv[0]}<course code>")
+    sys.exit(1)
+course_prefix=sys.argv[1]
+
+
+
+# course_prefix= sys.argv[1]
+# assert len(sys.argv) == 2, f"Usage: {sys.argv[0]} <course prefix>"
+# assert re.fullmatch(r"[A-Z]{4}[0-9]{4}", course_prefix), f"Invalid course code: {course_prefix}"
+
+
+# print(f"Valid course code: {course_prefix}")
