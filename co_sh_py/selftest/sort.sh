@@ -2,4 +2,4 @@
 
 ## sort|uniq
 
-awk -F'|' '{print $1}' enrollments.txt|sort|uniq
+cut -d '|' -f1 enrollments.txt | sort | uniq
