@@ -18,7 +18,13 @@ female_count=0
 
 with open("enrollments.txt") as file:
     for line in file:
-        if line.startswith(course_code): ##why use startswith
+        if line.startswith(course_code): ##why use startswithgender=='M'
             gender=line.strip().split('|')[4]
-            if 
+            if gender=='M':
+                male_count+=1
+            elif gender=='F':
+                male_count+=1
+
+print(f"Male: {male_count}")
+print(f"Female: {female_count}")
 
