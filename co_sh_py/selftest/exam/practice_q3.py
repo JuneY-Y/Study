@@ -8,12 +8,12 @@ import re
 
 result=set()
 # with open ("enrollments.txt") as f:
-for line in sys.stdin:
+for line in sys.stdin:  ##
         line=line.strip()
         if re.search(r'\|M$', line,re.IGNORECASE):
-            print(line)
+            # print(line)
             name=line.split('|')[2]
-            print(name)
+            # print(name)
             surname=name.split(',')[0]
             result.add(surname)
 
