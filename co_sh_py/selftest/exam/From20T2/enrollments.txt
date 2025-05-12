@@ -1,0 +1,17 @@
+$ cat enrollments.txt
+COMP1917|3360379|Costner, Kevin Augustus    |13978/1|M
+COMP1917|3364562|Carey, Mary                |13711/1|M
+COMP3311|3383025|Thorpe, Ian Augustus       |13978/3|M
+COMP2920|3860448|Steenburgen, Mary Nell     |13978/3|F
+COMP1927|3360582|Neeson, Liam               |13711/2|M
+COMP3411|3863711|Klum, Heidi June Anne      |13978/3|F
+COMP3141|3383025|Thorpe, Ian Augustus       |13978/3|M
+COMP3891|3863711|KLum, Heidi June Anne      |13978/3|F
+COMP3331|3383025|Thorpe, Ian Augustus       |13978/3|M
+COMP2041|3860448|Steenburgen, Mary Nell     |13978/3|F
+COMP2041|3360582|Neeson, Liam               |13711/2|M
+COMP3311|3711611|Klum, Mary                 |13978/3|F
+COMP3311|3371161|Thorpe, Ian Fredrick       |13711/3|M
+COMP3331|5122456|Wang, Wei                  |13978/2|M
+COMP3331|5456732|Wang, Wei                  |13648/3|M
+COMP4920|5456732|Wang, Wei                  |13648/3|M
