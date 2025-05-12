@@ -1,4 +1,3 @@
-$ cat enrollments.txt
 COMP1917|3360379|Costner, Kevin Augustus    |13978/1|M
 COMP1917|3364562|Carey, Mary                |13711/1|M
 COMP3311|3383025|Thorpe, Ian Augustus       |13978/3|M
