@@ -7,8 +7,8 @@ import sys
 import re
 
 result=set()
-with open ("enrollments.txt") as f:
-    for line in f:
+# with open ("enrollments.txt") as f:
+for line in sys.stdin:
         line=line.strip()
         if re.search(r'\|M$', line,re.IGNORECASE):
             print(line)
