@@ -7,4 +7,12 @@
 filename=$1
 
 numbers=$(cat $filename| sort|uniq|sed 's/ /\\n/g')
-echo $numbers
+# echo $numbers
+for num in $numbers; do :
+    # echo $num
+done
+
+min=$(echo $numbers|head -n1)
+max=$(echo $numbers|tail -n1)
+echo $min
+# echo $max
