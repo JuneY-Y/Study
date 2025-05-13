@@ -7,7 +7,7 @@ numbers=$(cat "$filename" | sort -n)
 min=$(echo "$numbers" | head -n1)
 max=$(echo "$numbers" | tail -n1)
 
-total1=$(( (max - min + 1) * (min + max) / 2 ))
+total1=$(((max - min + 1) * (min + max) / 2))
 total_actual=0
 for num in $numbers; do
     total_actual=$((total_actual + num))
@@ -19,7 +19,6 @@ if [ $missing -ne 0 ]; then
     echo $missing
 else
     echo "nothing"
-
 fi
 # #!/bin/dash
 
