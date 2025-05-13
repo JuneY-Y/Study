@@ -1,6 +1,6 @@
 #!/bin/dash
 
-## 先不用flag 用python里的for n not in m
+## 先不用flag 用python里的 if word not in line:
 ## 用flag判断 missing number
 ## 读取文件
 
