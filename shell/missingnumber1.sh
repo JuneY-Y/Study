@@ -16,6 +16,13 @@ numbers=$(cat "$filename"| sort -n)
 min=$(echo "$numbers"|head -n1) # "$numbers"
 max=$(echo "$numbers"|tail -n1)
 # echo $min,$max
+## 🌟 这里以后没有写出来 May 14
 count_num=$min
 while [ $count_num -lt $max ]; do ##这里用count支持条件判断的forloop
-    echo $count_num
+
+    if ! echo $numbers| grep -Eq $count_num;then
+        echo $count_num
+    fi
+
+    count_num=$((count_num+1))
+done
