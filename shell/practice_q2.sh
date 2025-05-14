@@ -1,11 +1,15 @@
 #!/bin/dash
-
+##🌟这里写的逻辑可以，但是整体的思路对于course的判断有问题的。需要重新写一下，捋顺“var”和不加var的情况
 filename=$1
 courses=$(cut -d'|' -f1 "$filename"|sort|uniq)
 # echo "$courses"
 for course in $courses; do
     male_count=$(grep "^$course|" "$filename"|grep -c "|M$") ##grep -c仅仅显示匹配的行数1
-    filename_count=$(grep "^$course|" "$filename"|greo -c )
+    female_count=$(grep "^$course|" "$filename"|grep -c "|F$")
+    
+    if [ "$male_count" -eq "$female_count" ]; then
+        echo "$course"
+    fi
 done
 # #!/bin/dash
 # filename=$1
