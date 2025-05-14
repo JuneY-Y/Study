@@ -1,8 +1,12 @@
 #!/bin/dash
 
 filename=$1
-country=$(cut -d '|' -f5,5 "$filename"|sort )
-echo "$country"
-for countries in "$country";do
-    
-done
+country=$(cut -d '|' -f5,5 "$filename"|sort|uniq -c|sort -n|tail -n1)
+# echo "$country"
+format_country=$(echo "$country"|sed "s/^ *//"|cut -d " " -f2-)
+sum=$(echo "$country"|sed "s/^ *//"|cut -d " " -f1)
+echo "$format_country": "$sum"
+# for countries in "$country";do
+#     count=$(echo $country|grep -c "^$countries$"|wc -l)
+#     echo "$countries"
+# done
