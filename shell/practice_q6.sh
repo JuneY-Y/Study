@@ -1,5 +1,5 @@
 #!/bin/dash
-
+## 得奖最多的国家
 filename=$1
 country=$(cut -d '|' -f5,5 "$filename"|sort|uniq -c|sort -n|tail -n1)
 # echo "$country"
