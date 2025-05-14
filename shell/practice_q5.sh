@@ -19,6 +19,11 @@ start=$(echo "$years"|head -n1)
 end=$(echo "$years"|tail -n1)
 # echo "$start"
 start_count=$start
+# 若为空，直接退出
+if [ -z "$start" ] || [ -z "$end" ]; then
+    exit 0
+fi
+
 while [ $start_count -le $end ]; do
     if ! echo "$years"| grep -qE "^$start_count$" ;then
         echo "$start_count"
