@@ -2,8 +2,11 @@
 
 filename=$1
 courses=$(cut -d'|' -f1 "$filename"|sort|uniq)
-echo "$courses"
-
+# echo "$courses"
+for course in $courses; do
+    male_count=$(grep "^$course|" "$filename"|grep -c "|M$") ##grep -c仅仅显示匹配的行数1
+    filename_count=$(grep "^$course|" "$filename"|greo -c )
+done
 # #!/bin/dash
 # filename=$1
 # echo $filename
