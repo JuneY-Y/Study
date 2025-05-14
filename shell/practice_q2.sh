@@ -1,5 +1,7 @@
 #!/bin/dash
 ##🌟这里写的逻辑可以，但是整体的思路对于course的判断有问题的。需要重新写一下，捋顺“var”和不加var的情况
+# ./practice_q2.sh enrollments.txt
+##enrollments不止有1门course，每个course都要进行一遍for loop进行count_male/female
 filename=$1
 courses=$(cut -d'|' -f1 "$filename"|sort|uniq)
 # echo "$courses"

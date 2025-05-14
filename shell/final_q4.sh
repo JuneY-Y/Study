@@ -1,5 +1,6 @@
 #!/bin/dash
 # Missing Number Finder
+# test： ./final_q4.sh numbers_1.txt
 filename=$1
 
 numbers=$(cat "$filename" | sort -n)
