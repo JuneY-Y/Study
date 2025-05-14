@@ -12,9 +12,9 @@ for line1 in "$count_man"; do
         woman=$(grep -E "^[A-Za-z]{4}[0-9]{4}" "$line2"|wc -l)
         if [ "$man" -eq "$woman" ];then
             echo "result:"
-            result=$(grep -Eo "^[A-Za-z]{4}[0-9]{4}" "$line1")
+            result=$(grep -oE "^[A-Za-z]{4}[0-9]{4}" '$line1'|cut -d '|' -f1)
             # echo $(grep -Eo "^[A-Za-z]{4}[0-9]{4}" "$line1")
-            echo "$result"
+            echo $result
         fi
     done
 done
