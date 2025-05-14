@@ -1,7 +1,6 @@
 #!/bin/dash
-
-# while [ -f "#$@" ]; do
-# done < dictionary
+##🌟 掌握的-d 以及ls 非常不熟悉。重新写
+# lists all “happy” directories in the current directory.
 
 for item in *; do
     if [ -d "$item" ]; then
