@@ -8,10 +8,13 @@ echo "$count_woman"
 # while read -r "$filename"; do
 for line1 in "$count_man"; do
     for line2 in "$count_woman"; do
-        man=$(grep -qE "^[A-Za-z]{4}[0-9]{4}" "$line1"|wc -l)
-        woman=$(grep -qE "^[A-Za-z]{4}[0-9]{4}" "$line2"|wc -l)
+        man=$(grep -E "^[A-Za-z]{4}[0-9]{4}" "$line1"|wc -l)
+        woman=$(grep -E "^[A-Za-z]{4}[0-9]{4}" "$line2"|wc -l)
         if [ "$man" -eq "$woman" ];then
-            echo $(grep -qE "^[A-Za-z]{4}[0-9]{4}" "$line1")
+            echo "result:"
+            result=$(grep -Eo "^[A-Za-z]{4}[0-9]{4}" "$line1")
+            # echo $(grep -Eo "^[A-Za-z]{4}[0-9]{4}" "$line1")
+            echo "$result"
         fi
     done
 done
