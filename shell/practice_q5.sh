@@ -1,8 +1,12 @@
 #!/bin/dash
 ## Find Years an Award Was Not Given
 
-Award=$1
+award=$1
 filename=$2
 
-real_award=$(cut -d '|' -f1 $Award)
+real_award=$(cut -d '|' -f1 $filename)
 # echo "$real_award"
+for awards in $award;do
+    years=$(grep -E "$awards" "$filename"| )
+
+done
