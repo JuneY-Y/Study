@@ -1,5 +1,6 @@
 #!/bin/dash
 # Sequence Generator by Replacing Integer in a String
+# test: ./practice_q4.sh aaa723bbb aaa727bbb
 string1=$1
 string2=$2
 # echo "$string"
@@ -12,7 +13,7 @@ end_char=$(echo "$string2"|grep -Eo "[A-Za-z]+$")
 # echo "$star_char"
 # echo "$end_char"
 count_num=$n
-while [ $count_num -le $m ]; do
+while [ $count_num -le $m ]; do #这里经常用到，我是会用到seq和mktemp，但是有时候会不让用
     # echo "$count_num"
     echo "$star_char""$count_num""$end_char"
     

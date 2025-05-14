@@ -1,7 +1,8 @@
 #!/bin/dash
 ## Find Years an Award Was Not Given
 # -ne是数字比较 
-#这道题遇到了3处问题，建议重新写一遍🌟
+#这道题遇到了3处问题，建议重新写一遍🌟 这里在award_q5有重写
+# test: ./practice_q5.sh 'Nobel Prize for physics' awards.psv
 
 award=$1
 filename=$2
