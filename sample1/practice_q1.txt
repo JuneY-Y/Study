@@ -25,12 +25,12 @@ Q1 answer:grep -E "Australia" awards.psv
 ------------------------------------------------------------------------------------------------------------------------
 
 2) Female, ACM Turing Award, winners
-Q2 answer:grep -E "ACM Turing Award/|.*/|Female.*" awards.psv 
+Q2 answer:grep -oE 'ACM Turing Award\|[^|]+\|[^|]+\|Female\|[^|]+\|[^|]+' awards.psv   grep -Eo "^ACM Turing Award/|.*/|Female.*" awards.psv 
 
 ------------------------------------------------------------------------------------------------------------------------
 
 3) Nobel Prize winners born between 1990 and 1999
-Q3 answer:
+Q3 answer:grep 
 
 ------------------------------------------------------------------------------------------------------------------------
 
