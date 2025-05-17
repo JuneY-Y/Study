@@ -30,9 +30,10 @@ Q2 answer: grep -Eo "^ACM Turing Award\|[0-9]+\|[^|]+\|Female\|[^|]+\|[^|]" awar
 ------------------------------------------------------------------------------------------------------------------------
 
 3) Nobel Prize winners born between 1990 and 1999
-Q3 answer:grep 
+Q3 answer: grep -Eo "Nobel Prize for [A-Za-z]+\|[0-9]+\|[^|]+\|[^|]+\|[^|]+\|199[0-9]{1}" awards.psv
 
 ------------------------------------------------------------------------------------------------------------------------
 
 4) winners with first name, last name, and middle initial starting with the same letter
-Q4 answer:
+Q4 answer: grep -E ""
+##捕获组
