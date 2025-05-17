@@ -25,7 +25,7 @@ Q1 answer:grep -E "Australia" awards.psv
 ------------------------------------------------------------------------------------------------------------------------
 
 2) Female, ACM Turing Award, winners
-Q2 answer:grep -oE 'ACM Turing Award\|[^|]+\|[^|]+\|Female\|[^|]+\|[^|]+' awards.psv   grep -Eo "^ACM Turing Award/|.*/|Female.*" awards.psv 
+Q2 answer:grep -oE 'ACM Turing Award\|[^|]+\|[^|]+\|Female\|[^|]+\|[^|]+' awards.psv   
 
 ------------------------------------------------------------------------------------------------------------------------
 
