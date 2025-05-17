@@ -13,6 +13,12 @@ for pathname in "$@"; do  ##想不明白，为什么要读取pathname
             continue;;
     esac
 
+    if ! head -n 1 "$file" | grep -q '^#!';then
+        echo "# $file does not have a #! line"
+        continue
+    fi
+    first_line=$(head -n 1 "$file")
+
     # case "$(head -1 "$pathname")" in
     #     *perl*) extension="pl";;
     #     *python*) extension="py";;
