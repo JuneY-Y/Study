@@ -17,6 +17,8 @@ for pathname in "$@"; do  ##想不明白，为什么要读取pathname
     new_pathname="$pathname.$extension"
 
     if echo "$pathname" | grep -Eq '\.[^/]+$'; then
+        echo "# $pathname already has an extension"
+    elif [ "$(head -c 2 "$pathname")" != '#!' ];then
     fi
 
 done
