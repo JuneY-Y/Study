@@ -5,3 +5,7 @@
 #如果没有if fi那么进行添加（题意是不需要添加的） extension就是开头那个破东西
 #识别的话 regex=$(grep -xE "^[#!]/.*")
 #添加成功以后推出
+
+for pathname in "$@"; do  ##想不明白，为什么要读取pathname
+
+done
