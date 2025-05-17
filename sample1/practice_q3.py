@@ -3,6 +3,8 @@ import sys
 import re
 '''
 grep -E '[\|M]$' | cut -d "|" -f3| cut -d "," -f1|sort |uniq
+this is the most important part,and I for get how to split and
+the logic of the middle part
 
 '''
 surnames=set()
