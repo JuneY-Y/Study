@@ -20,6 +20,12 @@ for pathname in "$@"; do  ##想不明白，为什么要读取pathname
         echo "# $pathname already has an extension"
     elif [ "$(head -c 2 "$pathname")" != '#!' ];then
         echo "# $pathname does not have a #! line"
+    elif [ -z "$extension" ];then
+        echo "# $pathname no extension for #! line"
+    elif [ -e "$new_pathname" ]; then
+        echo "# $new_pathname already exists"
+    else
+        echo "mv $ppathname $new_pathname"
     fi
 
 done
