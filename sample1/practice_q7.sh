@@ -14,4 +14,9 @@ for pathname in "$@"; do  ##想不明白，为什么要读取pathname
         *) extension="";;
     esac
 
+    new_pathname="$pathname.$extension"
+
+    if echo "$pathname" | grep -Eq '\.[^/]+$'; then
+    fi
+
 done
