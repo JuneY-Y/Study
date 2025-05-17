@@ -7,5 +7,11 @@
 #添加成功以后推出
 
 for pathname in "$@"; do  ##想不明白，为什么要读取pathname
+    case "$(head -1 "$pathname")" in
+        *perl*) extension="pl";;
+        *python*) extension="py";;
+        *sh*) extension="sh";;
+        *) extension="";;
+    esac
 
 done
