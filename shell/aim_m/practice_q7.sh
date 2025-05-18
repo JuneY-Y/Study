@@ -1,6 +1,11 @@
 #!/bin/dash
 
 for file_name in "$@"; do
+    ## 可以重新再写个if 进行判断是否有已经有的扩展名，直接输出即可
+    if echo "$file_name" | grep -Eq '\.[A-Za-z]+$'; then
+        echo "# $file_name already has an extension"
+        continue
+    fi
     # case "$(head -1 "$pathname")" in
     #     *perll*
     # esac
@@ -30,5 +35,5 @@ for file_name in "$@"; do
             echo "mv $file_name $file_name.pl"
         fi
     fi
-    done
+    # done
 done
