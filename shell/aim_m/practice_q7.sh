@@ -1,39 +1,45 @@
 #!/bin/dash
-
+# 合并了所有的case相似案例，把if elif fi改为了所有的case进行continue
 for file_name in "$@"; do
-    ## 可以重新再写个if 进行判断是否有已经有的扩展名，直接输出即可
+    # 1. 判断是否已有扩展名
     if echo "$file_name" | grep -Eq '\.[A-Za-z]+$'; then
         echo "# $file_name already has an extension"
         continue
     fi
-    # case "$(head -1 "$pathname")" in
-    #     *perll*
-    # esac
-    # cat "$file_name" | head -n 1 | while read -r line; do
+
+    # 2. 读取第一行
     read -r line < "$file_name"
 
+    # 3. 判断是否有 shebang（#!）
     if ! echo "$line" | grep -Eq "^#!"; then
         echo "# $file_name does not have a #! line"
-    elif ! echo "$line" | grep -Eq "^#!.*(python|sh|perl)"; then
-        echo "# $file_name no extension for #! line"
-    elif echo "$line"|grep -Eq "^#!.*python"; then
-        if [ -f "$file_name.py" ]; then
-            echo "# $file_name.py already exists"
-        else
-            echo "mv $file_name $file_name.py"
-        fi
-    elif echo "$line"|grep -Eq "^#!.*sh"; then
-        if [ -f "$file_name.sh" ]; then
-            echo "# $file_name.sh already exists"
-        else
-            echo "mv $file_name $file_name.sh"
-        fi
-    elif echo "$line"|grep -Eq "^#!.*perl"; then
-        if [ -f "$file_name.pl" ]; then
-            echo "# $file_name.pl already exists"
-        else
-            echo "mv $file_name $file_name.pl"
-        fi
+        continue
     fi
-    # done
+
+    # 4. 用 case 匹配语言类型
+    case "$line" in
+        *python*)
+            extension="py"
+            ;;
+        *sh*)
+            extension="sh"
+            ;;
+        *perl*)
+            extension="pl"
+            ;;
+        *)
+            echo "# $file_name no extension for #! line"
+            continue
+            ;;
+    esac
+
+    # 5. 构造新文件名
+    new_name="$file_name.$extension"
+
+    # 6. 判断目标文件是否已存在
+    if [ -f "$new_name" ]; then
+        echo "# $new_name already exists"
+    else
+        echo "mv $file_name $new_name"
+    fi
 done
