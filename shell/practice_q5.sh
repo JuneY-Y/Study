@@ -33,3 +33,8 @@ while [ $start_count -le $end ]; do
     start_count=$((start_count+1))
 done
 # done
+
+#shell中的 forloop every line:
+# while read line; do
+#     echo "xxxx"
+# done < "$filename" #如果没有指定file的话
