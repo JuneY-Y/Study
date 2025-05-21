@@ -1,6 +1,13 @@
 #!/bin/dash
+filename=$1 ##这里也不用进行变量的赋值，为什么呢？
 for filename in "$@";do
-    read -r line < "$file_name"  #这里还是没有特别想出来
+
+    #./practice_q7.sh: 4: cannot open script.rs: No such file
+    if [ ! -f "$filename" ]; then
+        echo "# $filename not found"
+        continue
+    fi 
+    read -r line < "$filename"  #这里还是没有特别想出来
     case "$line" in
         *perl*) extension="pl";;
         *python*) extension="py";;
