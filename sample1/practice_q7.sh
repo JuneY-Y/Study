@@ -7,7 +7,14 @@ for filename in "$@";do
         echo "# $filename not found"
         continue
     fi 
+
+    if echo "$filename" |grep -E "\.[A-Za-z]+";then
+       echo "# filename already has an extension"
+       continue
+    fi
+    #一行一行的进行读取
     read -r line < "$filename"  #这里还是没有特别想出来
+
     case "$line" in
         *perl*) extension="pl";;
         *python*) extension="py";;
@@ -18,8 +25,7 @@ for filename in "$@";do
 
     newfilename=$("$filename.$extension")
 
-    if echo "$filename" |grep -E "\.[A-Za-z]+";then
-        echo "# filename already has an extension"
+
     elif [ "$(head -1 "$filename")" != "#!" ]; then   ## 这里是个什么写法呢？
         echo "# filename does not have a #! line"
     elif [ "$(head -1 "$filename")" != "python|sh|perl" ];then
