@@ -22,6 +22,12 @@ for filename in "$@";do
         *) extension="";;
     esac
 
+    if [ "$extension" = "" ]; then
+        echo "# $filename no extension for #! line"
+        continue
+    fi
+    
+
 
     newfilename=$("$filename.$extension")
 
