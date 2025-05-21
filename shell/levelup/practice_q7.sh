@@ -18,14 +18,11 @@ for file_name in "$@"; do
 
     # 4. 用 case 匹配语言类型
     case "$line" in
-        *python*)
-            extension="py"
+        *python*) extension="py"
             ;;
-        *sh*)
-            extension="sh"
+        *sh*) extension="sh"
             ;;
-        *perl*)
-            extension="pl"
+        *perl*) extension="pl"
             ;;
         *)
             echo "# $file_name no extension for #! line"
