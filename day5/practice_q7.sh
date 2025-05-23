@@ -18,13 +18,18 @@
 for file in "$@" ##这个是便利所有
 do
     # 1. 检查是否已有扩展名
-    case "$file" in
-        *.*)
-            echo "# $file already has an extension"
-            continue
-            ;;
-    esac
+    # case "$file" in
+    #     *.*)
+    #         echo "# $file already has an extension"
+    #         continue
+    #         ;;
+    # esac
+    if echo "$file"|grep -Eq "\.[A-Za-z]+"; then
+        echo "# $file already has an extension"
+        continue
+    fi
 
+ 
     # 2. 检查文件是否存在且是否有 #! 行
     if ! head -n 1 "$file" | grep -q '^#!'; then
         echo "# $file does not have a #! line"
@@ -64,3 +69,4 @@ do
     # 6. 打印 mv 重命名命令
     echo "mv $file $new_name"
 done
+# echo "$file"
