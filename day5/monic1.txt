@@ -20,3 +20,7 @@ grep -E '^[^|]+\|[^|]+\|([^| ]+) ([A-Za-z]\.)? \1\|' awards1.psv
 grep -E '^[^|]+\|[^|]+\|([^| ]+) ([A-Za-z]\. )?\1\|' awards1.psv
 
 Q5. Find all entries with a birth year that ends in “73”
+grep -E '\|[0-9][0-9]73$' awards.psv
+
+Q6. Find all entries with a win(在第二列) year that ends in “73”
+grep -E '^[^|]+\|[0-9]{2}73\|' awards.psv
