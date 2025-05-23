@@ -2,3 +2,12 @@ Q1. Find all award entries given in the 1990s.
 answer:  grep -E  '^([^|]+)\|199[0-9]\|.*$' awards.psv
 
 Q2. Extract names of people whose surname starts with ‘C’
+## \s = 空白字符，是你在匹配姓名中间空格、字段对齐、单词分隔时非常有用的匹配符。
+grep -E '[^|]+\|[^|]+\s+C[A-Za-z]+\|' awards.psv
+
+Q3. Count how many Nobel Prizes for physics were awarded to people born before 1950
+
+
+Q4. Match lines where the last name is duplicated in the first and last name.
+
+Q5. Find all entries with a birth year that ends in “73”
