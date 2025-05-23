@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 from collections import defaultdict
-
+# 找出那些注册（enroll）了“三门及以上课程”的学生，并输出这些学生的名字和他们所选的课程。
 students=defaultdict(set)
 
 
-with open("emrollments.txt") as file:
+with open("enrollments.txt") as file:
     for line in file:
         parts=line.strip().split('|')
         name=parts[2]
