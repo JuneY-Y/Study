@@ -1,5 +1,5 @@
 #!/bin/dash
-filename=$1 ##这里也不用进行变量的赋值，为什么呢？
+# filename=$1 ##这里也不用进行变量的赋值，为什么呢？ 因为用了$@
 for filename in "$@";do
 
     #./practice_q7.sh: 4: cannot open script.rs: No such file 直接用-f进行解决
