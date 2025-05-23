@@ -16,5 +16,7 @@ grep -E '^[^|]+\|[^|]+\|(.)[^|]* \1[^|]*\|' awards.psv
 
 会输出Q4问题
 grep -E '^[^|]+\|[^|]+\|([^| ]+) ([A-Za-z]\.)? \1\|' awards1.psv
+#这里就可以输出两个了
+grep -E '^[^|]+\|[^|]+\|([^| ]+) ([A-Za-z]\. )?\1\|' awards1.psv
 
 Q5. Find all entries with a birth year that ends in “73”
