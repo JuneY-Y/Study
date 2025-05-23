@@ -13,4 +13,4 @@ with open("enrollments.txt") as file:
 
 for name,courses in students.items():
     if len(courses)>=3:
-        print(f"{name} - {', '.join(sorted(courses))}")
+        print(f"{name} - {', '.join(sorted(courses))}") #有序（按字母排序）输出
