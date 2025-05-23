@@ -12,5 +12,9 @@ grep -E "^Nobel Prize for physics\|[^|]+\|[^|]+\|[^|]+\|[^|]+\|19[0-4][0-9]$" aw
 Q4. Match lines where the last name is duplicated in the first and last name.
 直接记下来吧，所有名字首字母是一样的 first name,middle name,last name首字母都相同
 grep -E '^[^|]+\|[^|]+\|(.)[^|]+ \1\. \1[^|]+\|' awards.psv
+grep -E '^[^|]+\|[^|]+\|(.)[^|]* \1[^|]*\|' awards.psv
+
+会输出Q4问题
+grep -E '^[^|]+\|[^|]+\|([^| ]+) ([A-Za-z]\.)? \1\|' awards1.psv
 
 Q5. Find all entries with a birth year that ends in “73”
