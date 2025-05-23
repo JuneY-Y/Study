@@ -10,13 +10,22 @@ for file in "$@"; do
         echo "# $file does not have a #! line"
         continue
     fi
-
+    
     ##If the #! line does not contain any of the strings, perl, python or sh,
     #所以需要先获取shebang
+    
     first_line=$(head -n 1 "$file")
-    if echo "$first_line"| grep -Eq "perl|sh|perl";then
-        echo "# $file does not have a #! line"
+
+    if echo "$first_line"| grep -Eq "perl";then
+        ext=".pl"
         continue
+    elif echo "$first_line"| grep -Eq "sh";then
+        ext=".sh"
+        
+    elif echo "$first_line"| grep -Eq "python";then
+        ext=".py"
+    else
+        echo "$file no extension for #! line"
     fi
 
 done
