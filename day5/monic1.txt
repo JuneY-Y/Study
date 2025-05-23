@@ -6,7 +6,8 @@ Q2. Extract names of people whose surname starts with ‘C’
 grep -E '[^|]+\|[^|]+\s+C[A-Za-z]+\|' awards.psv
 
 Q3. Count how many Nobel Prizes for physics were awarded to people born before 1950
-
+grep -E '^Nobel Prize for physics\|[^|]+\|[^|]+\|[^|]+\|[^|]+\|19[0-4][0-9]$' awards.psv
+grep -E "^Nobel Prize for physics\|[^|]+\|[^|]+\|[^|]+\|[^|]+\|19[0-4][0-9]$" awards.psv
 
 Q4. Match lines where the last name is duplicated in the first and last name.
 
