@@ -1,12 +1,12 @@
 #!/bin/dash
-
+## 在23号的时候写了一遍，会遇到逻辑出错的地方，有标注了，用✅
 for file in "$@"; do
     if echo "$file"| grep -Eq "\.[A-Za-z]+"; then
         echo "# $file already has an extension"
         continue
     fi
 
-    if ! head -n 1 "$file"|grep -Eq "^#!"; then ## 注意 ！有还是没有
+    if ! head -n 1 "$file"|grep -Eq "^#!"; then ## 注意 ！有还是没有✅
         echo "# $file does not have a #! line"
         continue
     fi
@@ -29,7 +29,7 @@ for file in "$@"; do
     fi
 
     new_name="$file$ext" ##🌟这里用引号进行拼接
-    if [ -e "$new_name" ]; then ## 逻辑依旧写反了
+    if [ -e "$new_name" ]; then ## 逻辑依旧写反了✅
         echo "# $new_name already exists"
     else
         echo "mv $file $new_name"
