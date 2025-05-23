@@ -18,14 +18,21 @@ for file in "$@"; do
 
     if echo "$first_line"| grep -Eq "perl";then
         ext=".pl"
-        continue
     elif echo "$first_line"| grep -Eq "sh";then
         ext=".sh"
-        
     elif echo "$first_line"| grep -Eq "python";then
         ext=".py"
+        # continue 不需要在这里continue
     else
-        echo "$file no extension for #! line"
+        echo "# $file no extension for #! line"
+        continue
+    fi
+
+    new_name="$file$ext" ##🌟这里用引号进行拼接
+    if [ -e "$new_name" ]; then ## 逻辑依旧写反了
+        echo "# $new_name already exists"
+    else
+        echo "mv $file $new_name"
     fi
 
 done
