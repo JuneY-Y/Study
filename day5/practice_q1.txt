@@ -35,4 +35,4 @@ Q3 answer: grep -E '\|199[0-9]$' awards.psv
 ------------------------------------------------------------------------------------------------------------------------
 
 4) winners with first name, last name, and middle initial starting with the same letter
-Q4 answer:
+Q4 answer: grep -E '^[^|]+\|[^|]+\|(.)[A-Za-z]+ \1\. \1[A-Za-z]+\|' awards.psv
