@@ -14,4 +14,6 @@ elif lines1 == list(reversed(lines2)): # ✔️ 先把 iterator 转换成 list
     print("Mirrored")
 else:
     for i in range(len(lines1)):
-        if 
+        if lines1[i] != lines2[-1-i]:
+            print(f"Not mirrored: line {i+1} different")
+            
