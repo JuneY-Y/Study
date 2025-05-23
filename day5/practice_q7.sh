@@ -3,15 +3,8 @@
 #!/bin/dash
 
 # 题目目的：
+# 🌟判断 + 模式匹配 + 控制结构 + I/O判断
 # - 给没有扩展名的脚本文件自动添加扩展名（.py / .pl / .sh）
-
-# 技术点：
-# - shebang (`#!`) 检查
-# - 文件扩展名识别
-# - 文件是否存在判断 (-e)
-# - shell case 模式匹配与多重判断
-# - 安全性设计：只输出 mv 命令，不执行
-
 # 考查能力：
 # - shebang 解析、条件控制、case语句、文件操作判断
 
@@ -44,7 +37,7 @@ do
         ext=".py"
     elif echo "$first_line"|grep -q "perl";then
         ext=".pl"
-    elif echo "$first_line"|grep -q "dash";then
+    elif echo "$first_line"|grep -q "sh";then
         ext=".sh"
     else
         echo "# $file no extension for #! line"
