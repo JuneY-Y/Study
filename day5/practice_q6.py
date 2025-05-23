@@ -10,3 +10,8 @@ with open(file1) as f1, open(file2) as f2:
 
 if len(lines1)!=len(lines2):
     print(f"Not mirrored: different number of lines: {len(lines1)} versus {len(lines2)}")
+elif lines1 == list(reversed(lines2)): # ✔️ 先把 iterator 转换成 list
+    print("Mirrored")
+else:
+    for i in range(len(lines1)):
+        if 
