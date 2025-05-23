@@ -1,3 +1,4 @@
 Q1. Find all award entries given in the 1990s.
 answer:  grep -E  '^([^|]+)\|199[0-9]\|.*$' awards.psv
 
+Q2. Extract names of people whose surname starts with ‘C’
