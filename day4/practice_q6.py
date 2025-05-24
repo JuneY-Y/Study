@@ -25,7 +25,7 @@ elif line1==line22:
     print("Mirrored")
 else:
     for i in range(len1):# 这里bug了下
-       if line1[i] != line2[-1-i]:#这里卡住了🌟
+       if line1[i] != line2[-1-i]:#这里卡住了，这里刚好是从后面往前数🌟
             print(f"Not mirrored: line {i+1} different")
             sys.exit(0)
 
