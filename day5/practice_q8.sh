@@ -18,6 +18,8 @@ for file1 in "$@"; do
     fi
 
     for file2 in "$@"; do
+        [ "$file1"="$file2" ] &&continue
+        
     done
 
 done
