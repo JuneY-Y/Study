@@ -29,6 +29,8 @@ for line in lines:
             split_index=front.rfind(' ') #rfind不熟悉，用rfind实现按单词换行的环节
             new_lines.append(line[:split_index])
             line=line[split_index+1:]
+#left_part = line[:index]        # 前半段，不包含 index 本身
+#right_part = line[index + 1:]   # 后半段，跳过 index 自身的字符
         else:
             split_index=line.find(' ')
             new_lines.append(line[:split_index])
