@@ -23,13 +23,17 @@ for f in "$@";do
         ext=".sh"
     elif echo "$line1"|grep -qE "perl";then
         ext=".pl"
-        continue;
     else
         echo "# "$f" no extension for #! line"
+        break
     fi
 
     newfile="$f$ext"
-    if [ -e ]
+    if [ "$newfile" != "$f" ];then
+        echo "mv "$f" "$newfile" "
+    else
+        echo "# "$newfile" already exists"
+    fi
 
 
 
