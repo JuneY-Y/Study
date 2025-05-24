@@ -4,14 +4,10 @@
 
 import sys
 flag=0
-with open(sys.argv[1],'r') as f1:
-    line1=f1.readlines()
-    len1=len(line1)
+file1=sys.argv[1]
+file2=sys.argv[2]
+with open 
 
-# print(len1)
-with open(sys.argv[2],'r') as f2:
-    line2=f2.readlines()
-    len2=len(line2)
 line22=list(reversed(line2)) # e.g. the lines can be read into a list.
 if (len1!=len2):
     print(f"Not mirrored: different number of lines: {len1} versus {len2}")
