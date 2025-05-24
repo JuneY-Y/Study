@@ -19,7 +19,17 @@ for file1 in "$@"; do
 
     for file2 in "$@"; do
         [ "$file1"="$file2" ] &&continue
-        
+        case "$processed" in
+            *" $file2 "*) continue ;;
+        esac
+        if cmp -s "$file1" "$file2"; then
+            echo "ln -s $file1 $file2"
+            flag=1
+            processed="$processed $file2"
+        fi
     done
-
+    #将file1加入已经处理的列表里面
+    processed="$processed $file1"
 done
+# 最后统一输出 fallback 提示
+[ "$flag" -eq 0 ] && echo "No files can be replaced by symbolic links"
