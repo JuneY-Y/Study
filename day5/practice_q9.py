@@ -37,6 +37,7 @@ for line in lines:
             line=line[split_index+1:]
     if len(line)<=n:
         new_lines.append(line)
+        #因为去创建，因此还需要再次写回这个文件里才可以
 with open(filename, 'w') as f:
     for l in new_lines:
         f.write(l + '\n')
