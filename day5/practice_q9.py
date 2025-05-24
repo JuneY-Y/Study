@@ -8,14 +8,16 @@ import sys
 #which takes two command line argument, n and name of a file
 n=int(sys.argv[1])
 filename=sys.argv[2]
-
+# in question: should change the file
+#sample: script m file.txt 因此需要open file,要全部读取每个line。记录为readlines()
 with open(filename, 'r') as f:
     lines=f.readlines()
-
+#a maximum desired line length
 new_lines=[]
+#for loop 处理line结尾的'\n' 防止分割时候的干扰
 for line in lines:
     line=line.rstrip('\n')
-
+#
     while len(line)>n:
         if ' ' not in line:
             new_lines.append(line)
