@@ -8,9 +8,11 @@ with open(filename, 'r') as f:
     lines = f.readlines()
 
 new_lines = []
-
+num=1
 for line in lines:
     line = line.rstrip('\n')
+    num=num+1
+    print(f"{num}: {line}")
     while len(line) > n:
         if ' ' not in line:
             new_lines.append(line)
