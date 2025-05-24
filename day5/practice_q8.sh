@@ -6,4 +6,18 @@
 # 最终如果没有任何匹配的文件，
 # 就用 flag printed=0 统一输出 “No files can be replaced…”。
 
-processed
+flag=0
+processed=""
+
+for file1 in "$@"; do
+    # case "$processed" in
+    #     *" $file1 "*) continue;;
+    # esac
+    if echo "$procesed"| grep -qE "(^| )$file1( |$)"; then
+        continue
+    fi
+
+    for file2 in "$@"; do
+    done
+
+done
