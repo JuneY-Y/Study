@@ -17,6 +17,7 @@ for file1 in "$@"; do
             if cmp -s "$file1" "$file2";then
                 echo "ln -s "$file1" "$file2""
                 processed="$processed $file2"
+                flag=1
             fi
         fi
         # if cmp -s "$file1" "$file2";then
@@ -25,6 +26,6 @@ for file1 in "$@"; do
         # fi
     done
     processed="$processed $file1"
-    flag=1
 done
 # echo "$processed"
+[ $flag -eq 0 ]&& echo "No files can be replaced by symbolic links"  #重新学一遍🌟
