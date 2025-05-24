@@ -9,4 +9,4 @@ while read -r line; do
     else
         echo "there are no space in $line"
     fi 
-done 
+done < test.txt
