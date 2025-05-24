@@ -10,7 +10,7 @@ for line in sys.stdin:
     for word in words:
         lower_word=word.lower()
         char_count=Counter(lower_word)
-        freq_set=set(char_count.values())
+        freq_set=set(char_count.values()) ##这里是精髓
         if len(freq_set)==1:
             balanced_words.append(word)
     print(' '.join(balanced_words))
