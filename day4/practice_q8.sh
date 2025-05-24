@@ -5,6 +5,10 @@ for file1 in "$@"; do
 #commands to replace some of the files with symbolic links.
     for file2 in "$@";do
         if [ "$file1" != "$file2" ]; then
+            if echo "$processed"| grep -qE "(^| )$file1( |$)"; then
+                continue
+            fi
+
             # continue 
             # 这里🌟 如果processed中已经存在了file2那么跳过还是继续啊continue？
             case "$processed" in
@@ -20,7 +24,7 @@ for file1 in "$@"; do
         #     continue
         # fi
     done
-    processed="$processed $file2"
+    processed="$processed $file1"
     flag=1
 done
-echo "$processed"
+# echo "$processed"
