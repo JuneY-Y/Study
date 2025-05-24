@@ -12,7 +12,7 @@ for file1 in "$@"; do
             #     continue
             # fi
             # continue 
-            # 这里🌟 如果processed中已经存在了file2那么跳过还是继续啊continue？
+            # 这里🌟 如果processed中已经存在了file2那么跳过还是继续啊continue？需要熟悉这段代码以及if替换格式
             case "$processed" in
                 *" $file2 "*) continue ;;
             esac
