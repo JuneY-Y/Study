@@ -22,10 +22,11 @@ for line in lines:
         if ' ' not in line: # lines not containing a space character ' ' should not be changed
             new_lines.append(line) #直接在new_lines里添加整个line即可
             break
-        #需要进行
+        #这里需要进行的是把处理好的line的前n行放入一个front的容器里
         front=line[:n]
+
         if ' ' in front:
-            split_index=front.rfind(' ') #rfind不熟悉
+            split_index=front.rfind(' ') #rfind不熟悉，用rfind实现按单词换行的环节
             new_lines.append(line[:split_index])
             line=line[split_index+1:]
         else:
