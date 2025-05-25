@@ -6,3 +6,10 @@ import sys
 start= int(sys.argv[1])
 end=int(sys.argv[2])
 file=sys.argv[3]
+count=start
+list=[]
+with open (file, 'w') as f:
+    if (count<end):
+        list.append(count)
+        count=count+1
+        
