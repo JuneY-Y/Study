@@ -1,7 +1,7 @@
 #!/bin/dash
 
 for cfile in "$@"; do
-    while IFS= read -r line; do
+    while IFS= read -r line; do ## read line by line 🌟
         # 只抓 #include "xxx.h"
         include=$(echo "$line" | grep -Eo '#include "([^"]+\.h)"' | sed -E  's/#include "//; s/"$//')
         if [ -n "$include" ]; then ## 相当于 ! -z string非空
