@@ -1,16 +1,26 @@
 #!/bin/dash
+# ❌ 你在用
+#  if [ “$file1” -eq “$file2” ]
+# 但是 -eq 只能用于数字比较，不能用于字符串比较！
+
 di1=$1
 di2=$2
 file=""
 for file1 in "$di1"/*; do
-    
-    file1=$(echo "$file1"|cut -d '/' -f2)
-    echo "$file1"
+    filename1=$(basename "$file1")
+    # file1=$(echo "$file1"|cut -d '/' -f2)
+    # echo "$file1"
     for file2 in "$di2"/*;do
-        echo "$file2"
-        file=$(echo "$file1"|cut -d '/' -f2)
-        if [ "$file1" -eq "$file2" ];then
+        filename2=$(basename "$file2")
+        # echo "$file2"
+        # file2=$(echo "$file2"|cut -d '/' -f2)
+        if [ "$filename1" = "$filename2" ];then
             # file=$(echo "$file1"|cut -d '/' -f2)
+            if cmp -s "$filename1" "$filename2";then
+                file=$filename1
+                echo "$filename1"
+            fi 
         fi
     done
 done
+echo "$file"
