@@ -3,6 +3,8 @@
 import sys
 from collections import Counter
 '''
+还需要再写一遍，熟悉，能用，出另一道题也能挪用才可以
+len(set(votes.values())) == 1:
 ✅ count.values() → 返回字典里的值（类型是 dict_values，可以当作 list 用）
 ✅ set(count.values()) → 得到所有不同的出现次数
 ✅ len(set(...)) → 判断出现次数是否完全一致
