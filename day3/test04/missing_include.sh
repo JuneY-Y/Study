@@ -5,7 +5,8 @@ file2=$2
 #when file is checked, if include "d.h" not exist d.h in directory. then print it in standout
 for f in "$@";do
     while IFS= read -r line;do
-        check=$()
-            done < "$file1"
+        check=$(grep -Eo '"*.\.h"')
+        echo "$check"
+    done < "$file1"
     
 done
