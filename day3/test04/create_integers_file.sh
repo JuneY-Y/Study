@@ -8,6 +8,6 @@ file=$3
 count=$start
 while [ "$count" -le "$end" ]; do
     # echo "$count"
-    echo "$count">>"$3"
+    echo "$count">>"$file"
     count=$((count+1))
 done
