@@ -1,20 +1,19 @@
 #!/bin/dash
 
 for f in *.htm;do
-    # echo "$f"
+    echo "$f"
     original=$(echo "$f" | sed "s/\.htm//")
-    # echo "$original"
-    suffix=".html"
-    if ! echo "$f"|grep -Eq "\.html";then
-    # original_suffix=$(echo "$f"|grep -oE "\.[A-Za-z]+$")
-    # if echo "$original"| grep -q E "$original";then
-        new_suffix="$original$suffix"
-        # echo "$new_suffix"
-        mv "$f" "$new_suffix"
+    echo "$original"
+    newfile="$original".html
+    if [ -e "$newfile" ]; then
+        echo ""$newfile" exists" 1>&2
+        exit 1 ## 这里为什么exit1？
     else
-        echo ""$f" exists" 1>&2
-        exit 1
+        mv "$f" "$newfile"
     fi
-    # fi  
+    
+   
+    
+   
 done
 exit 0
