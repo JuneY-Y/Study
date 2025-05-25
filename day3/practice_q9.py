@@ -11,14 +11,25 @@ newline=[]
 for line in lines:
     line=line.rstrip()
     # newline=[]
-    if len(line)>n:
-        if " " not in line:
+    while len(line)>n: #用while循环进行分块
+        if ' ' not in line:
             newline.append(line)
-            continue
+            break
+        front=line[:n] #这个切片不理解
+        if ' ' in front:
+            index=front.rfind(' ')
+            # left=line[:index]
+            # right=line[index+1:]
+            newline.append(line[:index])
+            line=line[index+1:]
         else:
-            index=line.rfind(' ')
-            left=line[:index]
-            right=line[index+1:]
-            newline=newline.append(left)
-    else:
+            index=line.find(' ')
+            newline.append(line[:index])
+            line=line[index+1:]
+        if len(line)<=n:
+            newline.append(line)
+
+with open(file, 'w') as f:
+    for l in newline:
+        f.write(l+'\n')
 
