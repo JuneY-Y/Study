@@ -16,9 +16,8 @@ for file1 in "$di1"/*; do
         # file2=$(echo "$file2"|cut -d '/' -f2)
         if [ "$filename1" = "$filename2" ];then
             # file=$(echo "$file1"|cut -d '/' -f2)
-            if cmp -s "$filename1" "$filename2";then
+            if cmp -s "$file1" "$file2";then ##cmp 需要两个文件的完整路径去比较内容。
                 file=$filename1
-                echo "$filename1"
             fi 
         fi
     done
