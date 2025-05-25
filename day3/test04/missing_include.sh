@@ -3,10 +3,9 @@
 for cfile in "$@"; do
     while IFS= read -r line; do
         # 只抓 #include "xxx.h"
-        include=$(echo "$line" | grep -Eo '#include "([^"]+\.h)"' | sed -E 's/#include "//; s/"$//')
-
-        if [ -n "$include" ]; then
-            if [ ! -r "$include" ]; then
+        include=$(echo "$line" | grep -Eo '#include "([^"]+\.h)"' | sed -E  's/#include "//; s/"$//')
+        if [ -n "$include" ]; then ## 相当于 ! -z string非空
+            if [ ! -r "$include" ]; then # 文件系统层面，比如目录里有没有 abc.h 这个文件
                 echo "$include included into $cfile does not exist"
             fi
         fi
