@@ -34,7 +34,12 @@
 #         f.write(l + '\n')
 #!/usr/bin/env python3
 ## takes two command line argument, a positive integer n and the name of a file.
-
+'''
+🌟 小总结
+	•	✅ for line in f → 一行一行读
+	•	✅ rstrip() → 去掉右边的空白，包括换行符 \n
+	•	✅ 适合处理大文件（不会一次性全部读入内存）
+'''
 import sys
 n=int(sys.argv[1])
 file=sys.argv[2]
