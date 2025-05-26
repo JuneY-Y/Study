@@ -1,18 +1,20 @@
 #!/usr/bin/env python3
-
 import sys
-from statistics import mode
+
+seen=set()
 N=int(sys.argv[1])
-list=[]
 count=0
 for lines in sys.stdin:
-    lines=lines.strip()
-    list.append(lines)
-    count=count+1
-    if N==list[N-1]:
+    normalized=lines.lower()
+    seen.add(normalized)
+    count+=1
+    
+    if len(seen)==N:
         print(f"{N} distinct lines seen after {count} lines read.")
         exit(0)
+    
+print(f"End of input reached after {count} lines read - {N - len(seen)} different lines not seen.")
 
 
 
-mod=mode(list) ##uniq number
+# mod=mode(list) ##uniq number这个是不能用的
