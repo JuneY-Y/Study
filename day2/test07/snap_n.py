@@ -9,4 +9,7 @@ for line in sys.stdin:
     line=line.rstrip('\n')
     result.append(line)
     if line in result:
-        print()
+        for i in range(n):
+            
+    else
+        continue
