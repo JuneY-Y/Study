@@ -9,12 +9,15 @@ with open(file,'r')as f:
         line=line.strip()
         allLine.append(line)
         count +=1
-if count%2==0:
-    mid1=count//2
-    mid2=count//2 -1
-    print(allLine[mid2])
-    print(allLine[mid1])
+if count==0: ### 如果什么都没有输入。那么直接exit(0)
+    exit(0)
 else:
-    mid1=count//2
-    print(allLine[mid1])
+    if count%2==0:
+        mid1=count//2
+        mid2=count//2 -1
+        print(allLine[mid2])
+        print(allLine[mid1])
+    else:
+        mid1=count//2
+        print(allLine[mid1])  #allLine[1] 就是文件的第 2 行（因为从索引 0 开始）
 # print(count)
