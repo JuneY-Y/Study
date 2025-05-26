@@ -5,7 +5,7 @@ seen=set()
 N=int(sys.argv[1])
 count=0
 for lines in sys.stdin:
-    normalized=lines.lower()
+    normalized=' '.join(lines.strip().lower().split())
     # print(normalized)
     seen.add(normalized)
     count+=1
