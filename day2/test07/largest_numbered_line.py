@@ -28,6 +28,6 @@ try:
     # 打印包含最大值的行
     for idx, num_list in enumerate(numbers):
         if all_max in num_list:
-            print(lines[idx], end='')
+            print(lines[idx], end='') #lines 和 numbers 是按行对应存储的
 except ValueError:
     pass
