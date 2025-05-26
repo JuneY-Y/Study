@@ -15,4 +15,10 @@ The product of the numbers
 	•	statistics.mean、median、mode(统计值)
 '''
 import sys
+from statistics import mean, median,mode
+from functools import reduce
+from operator import mul
 
+numbers=list(map(int,sys.argv[1:]))
+if not numbers:
+    print("Please provide some numbers as arguments")
