@@ -6,7 +6,7 @@ The minimum number
 The maximum number
 The mean of the numbers
 The median of the numbers
-The mode of the numbers
+The mode of the numbers = import mul
 The sum of the numbers
 The product of the numbers
 
@@ -17,8 +17,17 @@ The product of the numbers
 import sys
 from statistics import mean, median,mode
 from functools import reduce
-from operator import mul
+import operator
+#from operator import mul
 
-numbers=list(map(int,sys.argv[1:]))
+
+numbers=list(map(int,sys.argv[1:])) # 转为整数列表
 if not numbers:
     print("Please provide some numbers as arguments")
+    sys.exit(1)
+
+count=len(numbers)
+unique_count=len(set(numbers))
+total=sum(numbers)
+product=reduce(mul, numbers, 1)
+mini=min(number)
