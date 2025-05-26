@@ -21,28 +21,3 @@ for line in sys.stdin:
 if max_value is not None:
     for l in lines_with_max:
         print(l)
-# #!/usr/bin/env python3
-# #!/usr/bin/env python3
-# import re
-# import sys
-
-# lines_with_max=[]
-# max_value=None
-# for line in sys.stdin:
-#     # for lines in line:
-#     lines=line.strip()
-#     number=re.findall(r'[0-9]+.[0-9]*',lines)
-#     # print(number)
-#     # exit(0)
-#     for num in number:
-#         number.append(float(num))
-    
-#     if number:
-#         line_max=max(number)
-#         if(max_value is None) or (line_max >max_value):
-#             max_value=line_max
-#             lines_with_max=[line]
-
-# if max_value is not None:
-#     for l in lines_with_max:
-#         print(l)
