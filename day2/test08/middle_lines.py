@@ -10,10 +10,11 @@ with open(file,'r')as f:
         allLine.append(line)
         count +=1
 if count%2==0:
-    mid1=line[count//2]
-    mid2=line[count//2 -1]
-    print("Even")
+    mid1=count//2
+    mid2=count//2 -1
+    print(allLine[mid2])
+    print(allLine[mid1])
 else:
-    mid1=line[count//2]
-    print("Odd")
-print(count)
+    mid1=count//2
+    print(allLine[mid1])
+# print(count)
