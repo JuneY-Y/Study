@@ -4,9 +4,13 @@ import sys
 file=sys.argv[1]
 
 with open(file,'r')as f:
+    count=0
     for line in f:
         line=line.strip()
-        print(line)
-        length=len(line)
+        count +=1
+        if count%2==0:
+            print("Even")
+        else:
+            print("Odd")
 
-print(length)
+print(count)
