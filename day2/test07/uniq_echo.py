@@ -6,7 +6,10 @@
 	•	result.append(arg) → 把第一次出现的参数按顺序存起来
 	•	' '.join(result) → 用空格拼接成一行字符串输出
 	•	最后不用 end=''，因为整个 print 一次性输出好
-
+    ------
+当我们需要把 多个字符串元素
+拼成一行、用空格分隔、格式严格的题目输出，
+我们就用 print(' '.join(...))。
 '''
 import sys
 # from collections import Counter
