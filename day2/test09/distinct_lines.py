@@ -6,6 +6,7 @@ N=int(sys.argv[1])
 count=0
 for lines in sys.stdin:
     normalized=lines.lower()
+    # print(normalized)
     seen.add(normalized)
     count+=1
     
@@ -13,7 +14,7 @@ for lines in sys.stdin:
         print(f"{N} distinct lines seen after {count} lines read.")
         exit(0)
     
-print(f"End of input reached after {count} lines read - {N - len(seen)} different lines not seen.")
+print(f"End of input reached after {count} lines read - {N} different lines not seen.")
 
 
 
