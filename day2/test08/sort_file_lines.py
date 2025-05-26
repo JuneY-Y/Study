@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+#需要再写一遍
 import sys
 file=sys.argv[1]
 ## 不能单独收集
@@ -10,7 +11,10 @@ with open (file, 'r') as f:
     #     compare.append(len(lines))
     #     l.append(lines)
 #sorted排序
+# ✅ 排序 key 用 (len(x), x)，确保：
+# 	•	先按长度
+# 	•	如果长度一样，再按字母序
 sorted_lines=sorted(line,key=lambda x: (len(x),x))
         
 for l in sorted_lines:  #排序后的结果直接循环
-    print(l, end='') #保留原始换行符🌟
+    print(l, end='') #保留原始行内换行符🌟
