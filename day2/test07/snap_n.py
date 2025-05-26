@@ -14,6 +14,24 @@ for line in sys.stdin:
     if counts[line] == n:
         print(f"Snap: {line}")
         break
+
+##  another version
+# #!/usr/bin/env python3
+
+# import sys
+# from collections import Counter
+
+# n = int(sys.argv[1])
+# counts = Counter()
+
+# for line in sys.stdin:
+#     line = line.rstrip('\n')
+#     counts[line] += 1
+#     if counts[line] == n:
+#         print(f"Snap: {line}")
+#         break
+
+#——-- I made
 # result=[]
 # n=sys.argv[1]
 # for line in sys.stdin:
