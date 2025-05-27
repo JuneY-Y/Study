@@ -4,7 +4,7 @@ import re
 #handle read all lines
 lines=sys.stdin.readlines()
 for line in lines:
-    if num:=re.findall(r'[+-]?(?:[0-9]+\.?[0-9]*|\.[0-9]+)',line):
+    if num:=re.findall(r'[+-]?(?:[0-9]+\.?[0-9]*|\.[0-9]+)',line): #grep出行里所有数字
         for number in num:
             line =line.replace(number, str(int(float(number) + 0.5))) #把行里找到的数字，转 float，加 0.5，取整（四舍五入），变字符串，换回去。
         print(line, end='')
