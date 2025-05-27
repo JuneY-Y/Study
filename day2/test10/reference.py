@@ -11,6 +11,7 @@
 	•	print(line) → 默认会自动换行，所以不需要 end=''。
 	•	re.search(r'#\d+', line) → 检查是否包含 # 后跟数字（如 #7）。
 '''
+#Lines of the form #n (where n is an integer value), should be replaced by the n’th line of input.
 import sys
 import re
 
