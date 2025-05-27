@@ -4,14 +4,31 @@ import re
 #handle read all lines
 lines=sys.stdin.readlines()
 for line in lines:
-    if m:=re.findall(r'[+-]?(?:[0-9]+\.?[0-9]*|\.[0-9]+)',line):
-        print(m)
-        if m is float:
-            if y.x>5:
-                y=y+1
-            else:
-                y=y-1
+    if num:=re.findall(r'[+-]?(?:[0-9]+\.?[0-9]*|\.[0-9]+)',line):
+        for number in num:
+            line =line.replace(number, str(int(float(number) + 0.5))) #把行里找到的数字，转 float，加 0.5，取整（四舍五入），变字符串，换回去。
+        print(line, end='')
+    else:
+        print(line, end='')
+    
             
                 
 
 
+# --- next version
+# #!/usr/bin/env python3
+# import sys
+# import re
+
+# # 定义数字匹配正则：可带正负号、可有小数点
+# pattern = r'[+-]?(?:\d+\.\d+|\d+|\.\d+)'
+
+# for line in sys.stdin:
+#     # 用 re.sub 替换行中每个数字
+#     def round_number(match):
+#         num_str = match.group(0)
+#         rounded = str(round(float(num_str)))
+#         return rounded
+
+#     new_line = re.sub(pattern, round_number, line)
+#     print(new_line, end='')  # line 自带换行符
