@@ -6,8 +6,9 @@ import re
 for file in sys.stdin:
     lines=file.strip()
     for line in lines:
-        if re.search(r'#[A-Z]',line) not in line:
-            print(line)
+        if not re.search(r'#\d+',line):
+            print(line,end='')
+    print('\n')
     # print(lines)
     
 
