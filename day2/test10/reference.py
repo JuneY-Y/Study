@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 '''
-总结：	
+总结：	这个代码非常值得学习，因为涉及到了很多的点:
     •	stdin 按行读入
 	•	按列分割处理
 	•	按条件过滤行
@@ -15,17 +15,21 @@
 import sys
 import re
 
-for line in sys.stdin: #output: line A\n
-    line = line.rstrip('\n')  # output :line A 只去掉换行，不去掉前后空格
-    if not re.fullmatch(r'#[0-9]\n', line):
+lines=sys.stdin.readlines()
+
+for i, line in enumerate(lines): 
+    if line[-1] == '\n':
+        line=line[:-1]
+    m=re.fullmatch(r'#(\d+)', line)
+    if m:
+        n=int(m.group(1))
+        print(lines[n-1],end='')
+    else:
         print(line)
-# for file in sys.stdin:
-#     lines=file.strip('\n') ## 只去换行
-#     for line in lines: ## 🌟按字符便利
-#         if not re.search(r'#\d+',line):
-#             print(line,end='')
-    # print('\n')
-    # print(lines)
+         # output :line A 只去掉换行，不去掉前后空格
+    # if not re.fullmatch(r'#[0-9]\n', line):
+    #     print(line)
+
     
 
     
