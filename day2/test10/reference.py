@@ -12,18 +12,22 @@
 	•	re.search(r'#\d+', line) → 检查是否包含 # 后跟数字（如 #7）。
 '''
 #Lines of the form #n (where n is an integer value), should be replaced by the n’th line of input.
+# 理解不了就直接带n进行赋值，即可
 import sys
 import re
 
 lines=sys.stdin.readlines()
 
-for i, line in enumerate(lines): 
+#保留行内空格，只去掉换行
+for line in lines: 
     if line[-1] == '\n':
         line=line[:-1]
+    #用正则匹配
     m=re.fullmatch(r'#(\d+)', line)
     if m:
+        # print(f"this is what I want to see{m.group(1)}")
         n=int(m.group(1))
-        print(lines[n-1],end='')
+        print(lines[n-1],end='') #自带换行符，所以要去掉
     else:
         print(line)
          # output :line A 只去掉换行，不去掉前后空格
