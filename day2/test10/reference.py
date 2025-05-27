@@ -16,7 +16,7 @@ import re
 
 for line in sys.stdin: #output: line A\n
     line = line.rstrip('\n')  # output :line A 只去掉换行，不去掉前后空格
-    if not re.search(r'#\d+', line):
+    if not re.fullmatch(r'#[0-9]\n', line):
         print(line)
 # for file in sys.stdin:
 #     lines=file.strip('\n') ## 只去换行
