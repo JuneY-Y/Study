@@ -1,4 +1,9 @@
 #!/usr/bin/env python3
+'''
+小数处理部分，只匹配小数： \d+\.\d+
+值得学习的点： 正则
+
+'''
 import sys
 import re
 #handle read all lines
