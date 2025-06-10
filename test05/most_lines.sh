@@ -5,10 +5,10 @@ result=""
 #$@ 是全局变量的索引
 for inputs in "$@"
 do
-    current_line=$( wc -l < "$inputs" )
-    if [ "$current_line" -gt "$max" ]
+    cur_line=$( wc -l < "$inputs" )
+    if [ "$cur_line" -gt "$max" ]
     then
-     max=$current_line
+     max=$cur_line
      result=$inputs
     fi
 done
