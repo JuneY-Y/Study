@@ -2,7 +2,7 @@
 
 max=0
 result=""
-
+#$@ 是全局变量的索引
 for inputs in "$@"
 do
     current_line=$( wc -l < "$inputs" )
