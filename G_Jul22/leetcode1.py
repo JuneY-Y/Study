@@ -6,6 +6,7 @@ class Solution(object):
 
         def dfs(i):
             for j in range(n):
+                ## because 1 is connected
                 if isConnected[i][j] == 1 and j not in visited:
                     visited.add(j)
                     dfs(j)
@@ -17,3 +18,12 @@ class Solution(object):
                 dfs(i)
                 count += 1
         return count
+if __name__ == "__main__" :
+    sol = Solution()
+    isConnected=[
+        [1,0,0],
+        [0,1,0],
+        [0,0,1]
+    ]
+    result=sol.findCircleNum(isConnected)
+    print("Output:", result)
