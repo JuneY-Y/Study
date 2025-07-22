@@ -1,6 +1,6 @@
 class Solution(object):
     def findCircleNum(self, isConnected):
-        
+       ## isConnected=[[1,1,0],[1,1,0],[0,0,1]]
         n=len(isConnected)
         visited=set()
 
